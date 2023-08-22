@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>text_html_attr_css메서드</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      //   $(document).ready(function () {
+      // body구역에 script를 쓸 때는 안써도 되는데 head구역에 쓸때는 꼭 적어야함(모든 내용을 다 읽고 {}안에 내용 수행해줘)
+      // 왠만하면 body 맨아래에 적는걸 권장
+      //  $(function () {
+      //     let $h1 = $("h1");
+      //     $h1.on("click", function () {
+      //       let txt = $(this).text();
+      //       $("p").text(txt);
+      //     });
+      //   });
+    </script>
+  </head>
+  <body>
+    <!-- 
+    <제이쿼리>              <자바스크립트>    
+    text()                  textContent
+    html()                  innerHTML
+    attr()                  setAttribute(), getAttribute()
+    css()                   style.속성명(color, background....)
+
+    
+      
+    <setter> - 값으로 수정           <getter> 
+    text(값)                         text()
+    html(값)                         html()
+    attr({속성명 : '값'})            attr('속성명')
+    css({속성명 : '값'})             css('속성명')
+      
+ -->
+
+    <h1>김효진</h1>
+    <h1>홍길동</h1>
+    <div class="school"><strong>그린컴퓨터학원</strong></div>
+    <ul class="potal">
+      <li>
+        <a href="https://www.daum.net/" style="color: red">다음</a>
+      </li>
+      <li>
+        <a href="https://www.naver.com/" style="color: green">네이버</a>
+      </li>
+      <li>
+        <a href="https://www.yahoo.com/" style="color: brown">야후</a>
+      </li>
+    </ul>
+    <p></p>
+
+    <style>
+      .gallery {
+        max-width: 300px;
+        margin: 50px auto;
+      }
+      .gallery ul {
+        list-style: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .gallery ul li {
+        width: 25%;
+        border: 2px solid #000;
+      }
+      .gallery ul li.on {
+        border-color: red;
+      }
+      .gallery ul li img {
+        width: 100%;
+        vertical-align: middle;
+      }
+    </style>
+
+    <div class="gallery">
+      <ul>
+        <li class="on">
+          <a href="javascript:;"
+            ><img src="./sample/9장/media/Desert.png" alt="사막"
+          /></a>
+          <!-- href="javascript:;" 이동할 목적이 아닐때-->
+        </li>
+        <li>
+          <a href="javascript:;"
+            ><img src="./sample/9장/media/Hydrangeas.png" alt="수국"
+          /></a>
+        </li>
+        <li>
+          <a href="javascript:;"
+            ><img src="./sample/9장/media/Jellyfish.png" alt="해파리"
+          /></a>
+        </li>
+        <li>
+          <a href="javascript:;"
+            ><img src="./sample/9장/media/Koala.png" alt="코알라"
+          /></a>
+        </li>
+      </ul>
+      <div class="stage">
+        <h2>사막</h2>
+        <img src="./sample/9장/media/Desert.png" alt="사막" />
+      </div>
+    </div>
+
+    <script>
+      // h1을 클릭했을 때 안에 있는 글자를 추출해서 p요소에 삽입하시오.
+      let $h1 = $("h1");
+      $h1.on("click", function () {
+        let txt = $(this).text();
+        $("p").text(txt);
+      });
+      /*
+      // 자바스크립트로 쓰면 아래와 같음
+      let h1 = document.querySelectorAll("h1");
+      for (let i = 0; i < h1.length; i++) {
+        h1[i].onclick = function () {
+          let txt = this.textContent;
+          document.querySelector("p").textContent = txt;
+        };
+      }
+      */
+
+      // div를 클릭했을 때 안에 있는 요소(element)를 추출해서 p요소에 삽입하시오.
+      let $school = $(".school");
+      $school.on("click", function () {
+        $("p").html($(this).html());
+      });
+
+      // a를 클릭하면 p태그 배경색을 a와 같은 색으로
+      $(".potal li a").on("click", function () {
+        let color = $(this).css("color");
+        // console.log(color);
+        $("p").text(color).css({ background: color, color: "#fff" });
+        // 속성이 하나만 있을때는 css("background" , color) 이렇게 써도 됨
+        //속성의 값이 변수명, 숫자인경우 (" ") 쓰지말아야함
+        return false; // a태그의 기본이벤트(이동)을 막아줌
+      });
+
+      // a태그들에 타이틀 속성 추가(타이틀 값은 href값)
+      $(".potal li a").each(function () {
+        // each(function)여러개의 a값을 순차적으로 접근
+        let tit = $(this).attr("href");
+        $(this).attr({ title: tit });
+      });
+
+      $(".gallery ul li a").on("click", function () {
+        $(this).parent().addClass("on").siblings().removeClass("on");
+        let alt = $(this).find("img").attr("alt");
+        let src = $(this).find("img").attr("src");
+        $(this).parents("ul").next().find("h2").text(alt);
+        $(this).parents("ul").next().find("img").attr({ src: src, alt: alt });
+      });
+    </script>
+
+    <!-- 
+    .text() : 선택자 안에 있는 글자만을 추출
+    .html() : 선택자 안에 있는 태그(요소)를 추출
+    .attr('속성명') : 태그(요소)가 갖고 있는 속성의 속성값을 추출
+    .css('속성명') : css 속성의 속성값을 추출
+
+    .text('문자') : 선택자 안에 있는 글자를 수정하거나 입력
+    .html('<요소>내용</요소>') : 선택자 안에 있는 태그(요소)를 수정하거나 입력
+    .attr({속성명:'속성값'}) : 태그(요소) 속성을 수정하거나 입력
+    .css({속성명:'속성값'}) : css 속성을 수정하거나 입력
+     -->
+  </body>
+</html>

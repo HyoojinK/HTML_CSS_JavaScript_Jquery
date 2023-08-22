@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      #parent {
+        width: 800px;
+        margin: 0 auto;
+        height: 300px;
+        background: skyblue;
+        padding: 0;
+        display: flex;
+        /* 자식들의 가로정렬 문제 (기본값:flex-start)*/
+        justify-content: space-between;
+        /* 세로정렬 문제 (기본값: stretch)*/
+        align-items: flex-end;
+      }
+
+      .child {
+        border: 1px solid red;
+        /* flex-grow: 1;    부모공간이 남아있으면 자식들이 확대되어서 채워짐
+        flex-shrink: 1;     부모공간을 넘치게 되면 자식들이 축소되어서 채워짐
+        width: 200px; 
+        위 세문장을 한번에 쓰면?*/
+        /* flex: 1 1 200px; flex-grow나 flex-shrink가 1이면 세번째(넓이)는 무시가 되어버림. */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <div class="child">11</div>
+      <div class="child">21</div>
+      <div class="child">31</div>
+      <div class="child">41</div>
+      <div class="child">51</div>
+      <div class="child">61</div>
+    </div>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #parent2 {
+        max-width: 800px;
+        margin: 50px auto;
+        background: pink;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* 자식들의 줄바꿈 허용 (기본값:no-wrap) */
+        flex-wrap: wrap;
+      }
+      .child2 {
+        flex: 0 1 21%;
+        border: 1px solid red;
+        margin: 10px;
+      }
+    </style>
+    <div id="parent2">
+      <div class="child2">1</div>
+      <div class="child2">2</div>
+      <div class="child2">3</div>
+      <div class="child2">4</div>
+      <div class="child2">5</div>
+      <div class="child2">6</div>
+      <div class="child2">7</div>
+    </div>
+
+    <style>
+      #parent3 {
+        max-width: 500px;
+        margin: 50px auto;
+        background: orange;
+        display: flex;
+        height: 300px;
+        /* justify-content: flex-start;
+        align-items: stretch; */
+
+        /* flex정렬의 방향 : 기본값 row(수평축), column(수직축) */
+        flex-flow: column;
+        /* column이면 수직정렬, 수평정렬이 반대로!
+        justify-content: 자식들의 세로정렬(flex-start)
+        align-items: 자식들의 가로정렬(stretch)
+         */
+      }
+      .child3 {
+        border: 1px solid red;
+        flex: 1 1 0; /* flow가 cloumn이기때문에 가로로 채워지는게 아니라 세로로 채워짐*/
+      }
+      .child3:nth-child(3) {
+        flex: 2;
+      }
+    </style>
+    <div id="parent3">
+      <div class="child3">1</div>
+      <div class="child3">2</div>
+      <div class="child3">3</div>
+      <div class="child3">4</div>
+    </div>
+  </body>
+</html>

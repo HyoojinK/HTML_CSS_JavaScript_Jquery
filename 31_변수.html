@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 변수선언 키워드 : var, let, const
+      전역변수 선언 : var - 함수문 블록에서 선언하면 지역변수로 선언됨(잘 안씀)
+      블록(함수문 조건문 반복문)변수 선언(지역변수) : let, const-(상수는 값을 변경할 수 없음!) 
+      */
+      console.log(a); // undefined
+      var a;
+      console.log(a); // undefined
+      a = 10;
+      console.log(a); // 10
+
+      var a = 20;
+      console.log(a); // 20
+
+      function add() {
+        var b = 30;
+        console.log(a, b);
+      }
+      add();
+      console.log(a);
+      //   console.log(b) - 괄호가 닫히면서 b의 데이터는 사라짐
+
+      const z = 100;
+      //   z = 200;  - const는 상수이므로 변경할 수 없음!
+      console.log(z);
+
+      let kim = "김효진";
+      {
+        //   let kim = "홍길동";
+        console.log(kim);
+      }
+      console.log(kim);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: nine;
+        max-width: 800px;
+        margin: 50px auto 0;
+        border: 1px solid #000;
+        background-color: pink;
+        overflow: hidden;
+      }
+      .cf::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      ul li {
+        border: 1px solid #f00;
+        width: 25%;
+        /* display: inline-block; */
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        블록요소들을 한줄로 정렬하기 위한 방법
+        1. display : inline-block; (사이에 여백이 생김)
+        2. float : left | right (빈틈이 생기지 않지만 부작용이 발생함)
+          1) 자식들이 전부 다 float정렬을 하면 부모구조가 무너짐 
+            - 부모한테 class="cf" 추가
+            - 부모한테 overflow:hidden 속성을 추가해서 해결함
+              * overflow:hidden 속성은 오버플로우된 후손이 없을때만 사용!*
+          2) 형들이 float 정렬을 하면 동생한테 문제가 생김
+            - 동생한테 clear:both 추가
+
+     -->
+
+    <ul>
+      <li><a href="#">메뉴1</a></li>
+      <li><a href="#">메뉴2</a></li>
+      <li><a href="#">메뉴3</a></li>
+      <li><a href="#">메뉴4</a></li>
+    </ul>
+    <p style="width: 30%; float: left; background-color: lime">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+      architecto perferendis aut consectetur corporis delectus vero minus nobis,
+      maiores quia odit tempore id officia, non distinctio perspiciatis fuga,
+      nam numquam?
+    </p>
+    <p style="width: 70%; float: right; background-color: orange">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum rem
+      voluptatibus excepturi obcaecati consequatur dolore nihil magni fugiat
+      facere. Deleniti delectus, suscipit accusantium vitae asperiores ab quam
+      nisi facere numquam! Quibusdam eligendi possimus quod officia provident
+      fuga aliquid, iusto odio quas aperiam, vitae amet iure, vero quam! Dolores
+      tenetur eum est perspiciatis sint ea dolore optio sit, debitis cupiditate
+      quos!
+    </p>
+    <div style="clear: both">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+      provident necessitatibus libero obcaecati officiis rerum soluta totam id
+      sunt voluptatem, corporis quam reiciendis nostrum inventore veniam vero
+      odit, quis odio?
+    </div>
+  </body>
+</html>

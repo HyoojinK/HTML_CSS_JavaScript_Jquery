@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>교재 사이트리스트</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/rwd.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <div class="header"></div>
+    <section class="prdBox row">
+      <div class="title">
+        <h2>한국산업인력공단 국가자격 시험일정</h2>
+      </div>
+    </section>
+    <div class="footer"></div>
+
+    <script src="./js/common.js"></script>
+
+    <script>
+      let data = "";
+      $.ajax({
+        type: "GET",
+        url: "https://apis.data.go.kr/B190001/localGiftsPaymentV2/paymentsV2?serviceKey=vKlgMc%2B1x%2FSWkkhtWG5Zxi8kOiLSZmhXjwE3eqvf8ItyyUqUaUtqFrHz1vVnObXn6jP%2BS2ML37kV49u%2FBtFXGw%3D%3D&page=1&perPage=10&cond[par_gend::EQ]=F&cond[par_ag::EQ]=02&cond[pvsn_inst_cd::EQ]=I0000001",
+        dataType: "json",
+        success: function (rdata) {
+          console.log(rdata);
+          data = rdata.body.items;
+          // console.log(data);
+          usedata("쟈켓");
+        },
+        error: function (xhr) {
+          alert(xhr.status + "/" + xhr.errorText);
+        },
+      });
+    </script>
+    <script src="./js/prdlist.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // w, x, y, z의 최종값은 얼마인가?
+      let x = 1,
+        y = 2,
+        z = 3,
+        w = 4;
+
+      y = x++; // 1
+      z += x; // 5
+      w = w > 3 ? w - 3 : 3 - w; // 1
+      // x=2 y=1 z=5 w=1
+      document.write(x, y, z, w);
+
+      let a = 1,
+        b = 2,
+        c = 3,
+        d = 4;
+      let result1 = a > 1 || c != 3;
+      let result2 = a != b || c != d;
+      let result3 = a == 1;
+      // false, true, true
+      document.write(result1, result2, result3);
+
+      let s = 1 + 2 + "hello" + 3 + 4;
+      let t = 1 + "hello" + 2 + 3;
+
+      document.write(s + "<br>" + t);
+    </script>
+  </body>
+</html>

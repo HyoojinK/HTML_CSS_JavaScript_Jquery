@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>하이퍼링크</title>
+  </head>
+  <body>
+    <!--
+        <a> 태그는 이미지나 글자를 바로 감싸게 할 것
+        창열기 방식 : target="_self(기존창)"
+                      target="_blank(새창)"
+                      target="_parent(부모창)"
+                      target="_top(브라우저창)"
+    -->
+    <h2>링크만들기</h2>
+    <hr />
+    <h3>포털사이트 목록</h3>
+    <ul>
+      <li><a href="https://www.naver.com" target="_blank">네이버</a></li>
+      <li><a href="https://www.daum.net" target="_blank">다음</a></li>
+    </ul>
+
+    <h3>신문 사이트 목록</h3>
+    <ul>
+      <li>
+        <a href="https://www.chosun.com/"
+          ><img src="./sample/2장/media/iconchosun.png" alt="조선"
+        /></a>
+      </li>
+      <li>
+        <a href="https://www.etnews.com/"
+          ><img src="./sample/2장/media/iconetnews.png" alt="et뉴스"
+        /></a>
+      </li>
+    </ul>
+
+    <h2>id 속성으로 앵커(anchor : 닻) 만들기</h2>
+    <ul id="title list">
+      <li><a href="#area1">서론</a></li>
+      <li><a href="#area2">본론</a></li>
+      <li><a href="#area3">결론</a></li>
+    </ul>
+    <div id="area1">
+      <h3>서론 <a href="#title list">▲위로</a></h3>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta deleniti ab
+      porro perferendis animi mollitia commodi eligendi fugiat illo soluta
+      voluptatum eveniet quo, tempora rerum, ex maiores corporis, nobis
+      repudiandae? Ad eligendi soluta eos culpa numquam nihil optio iste eveniet
+      temporibus fugit nulla debitis autem, animi necessitatibus nobis dolore
+      harum. Minima voluptatum debitis fuga aliquam laudantium eum, quidem
+      accusantium. Quis. Sed, esse labore ut ullam optio tenetur. Quibusdam
+      mollitia quia vel cum architecto quasi, sapiente alias repellendus,
+      laborum non saepe aliquid molestias? Alias vitae harum obcaecati mollitia,
+      nam et sint?
+    </div>
+    <div id="area2">
+      <h3>본론 <a href="#title list">▲위로</a></h3>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+      magnam voluptate officiis ex? Impedit enim, ab voluptatem facilis
+      similique quos pariatur quaerat consequuntur, quasi excepturi nemo
+      delectus eligendi, quisquam dolores? Temporibus doloremque, enim dolorum
+      impedit repudiandae placeat aliquid? Quidem, eveniet. Ipsam dolorem
+      consectetur, vero quia quam quis ipsa soluta quos eos molestias corrupti
+      eaque officiis hic nihil odio distinctio asperiores? Expedita, dignissimos
+      beatae harum ea aspernatur eius vitae totam tempora quis hic sunt nostrum
+      adipisci nihil rerum ratione itaque necessitatibus? Amet molestias tempora
+      quaerat quod earum placeat optio magnam quidem. Libero saepe aperiam
+      voluptate in animi laudantium, sequi quis doloribus deleniti aliquam,
+      nostrum, accusantium atque. Eligendi vero tempora reprehenderit nam
+      doloremque voluptatum ducimus atque impedit, aspernatur iure laboriosam
+      maxime alias! Distinctio assumenda, non molestiae consequuntur magni
+      voluptas eum, autem optio, corporis nobis quas saepe exercitationem
+      aliquam molestias dolorum ex quasi? Consequuntur beatae consequatur
+      nostrum? Accusantium reprehenderit recusandae commodi sequi perferendis.
+      Enim quos veritatis delectus officia culpa libero soluta magnam
+      voluptatibus quia voluptate labore quasi nihil earum aspernatur
+      dignissimos ipsum molestias odit fugit quis, iusto sapiente exercitationem
+      voluptates commodi? Enim, eum. Architecto esse velit tempore! Id, deserunt
+      maiores, explicabo atque tempora voluptatibus accusamus dolores voluptates
+      a est nostrum rem debitis quam laboriosam magni fugiat enim labore totam
+      temporibus possimus aliquam? Nulla? Vero cupiditate soluta non! Sapiente,
+      reprehenderit. Aliquid maxime excepturi quos voluptatibus natus numquam
+      animi quia harum, temporibus modi architecto repudiandae iure illum quasi
+      nihil eum fuga labore cupiditate officia suscipit! Asperiores labore
+      veritatis ipsa molestiae minus consequatur aperiam magni dolorum alias in
+      doloribus, assumenda sit voluptatibus atque nostrum illo repellendus sequi
+      adipisci vero voluptatum harum. Explicabo voluptatem ratione hic soluta?
+      Facilis provident corrupti eaque porro suscipit consequuntur omnis libero
+      corporis sit? Delectus aut est earum. Consequuntur, ducimus voluptate
+      dolorem dolorum obcaecati ipsum numquam vel nisi illo ab? Illum,
+      architecto sint?
+    </div>
+    <div id="area3">
+      <h3>결론 <a href="#title list">▲위로</a></h3>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat
+      necessitatibus reiciendis dolore consectetur autem dicta ab adipisci
+      magnam amet sunt, animi iste consequuntur reprehenderit quo voluptate
+      dignissimos neque iure vero?Lorem ipsum dolor sit, amet consectetur
+      adipisicing elit. At nulla qui, aliquam non doloribus veniam deleniti
+      excepturi similique laborum voluptatibus molestiae enim delectus soluta
+      mollitia inventore eum assumenda, deserunt rem.
+    </div>
+
+    <h2>파일 다운로드 링크 만들기</h2>
+    <ul>
+      <li>
+        <a href="./sample/2장/media/Elvis.png" download
+          >엘비스 프레슬리 사진 다운로드</a
+        >
+      </li>
+      <li>
+        <a href="./sample/2장/media/chapter9.pdf" download
+          >챕터9장 파일 다운로드</a
+        >
+      </li>
+      <li>
+        <a href="./sample/2장/media/EmbraceableYou.mp3" download
+          >오디오 파일 다운로드</a
+        >
+      </li>
+    </ul>
+  </body>
+</html>

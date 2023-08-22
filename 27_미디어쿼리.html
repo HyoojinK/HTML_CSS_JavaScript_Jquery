@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="main">
+    <p>김효진</p>
+    <!-- 
+        반응형 스타일 잡기
+        1.<head> 구역에 아래의 메타태그 입력
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        2. (1) 기본화면 pc(큰화면) 기준
+            미디어쿼리 없는 스타일이 가장 큰 화면
+            @media screen and (max-width: 중간화면크기){    }    
+            @media screen and (max-width: 작은화면크기){    }    
+
+           (2) 기본화면 mobile(작은화면) 기준
+            미디어쿼리 없는 스타일이 가장 작은 화면
+            @media screen and (min-width: 중간화면크기){    }
+            @media screen and (min-width: 큰화면크기){    }
+
+           (3) 특정화면 기준
+            @media screen and (min-width: 이상) and (max-width: 이하) {    }
+     -->
+
+    <!-- PC화면
+      <style>
+      body {
+        background: red;
+      }
+      @media screen and (max-width: 1024px) {
+        body {
+          background: pink;
+        }
+        @media screen and (max-width: 768px) {
+          body {
+            /* background: green; */
+            color: yellow;
+          }
+        }
+      }
+    </style> -->
+
+    <style>
+      #main {
+        background: blue;
+      }
+      @media screen and (min-width: 768px) {
+        body {
+          background: pink !important;
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        body {
+          background: yellow !important;
+        }
+      }
+    </style>
+  </body>
+</html>

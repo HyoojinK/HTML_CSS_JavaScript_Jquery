@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <h2>제이쿼리 선택자 탐색</h2>
+    <div id="container">
+      <div id="sub">
+        <p id="contchild">div p</p>
+      </div>
+      <p>p</p>
+      <p>p</p>
+      <p id="part1">p</p>
+      <p>p</p>
+      <p>p</p>
+    </div>
+
+    <h2>순서선택자</h2>
+    <ul id="nav1">
+      <li>0</li>
+      <li>1</li>
+      <li class="special">2</li>
+      <li>3</li>
+    </ul>
+    <ul id="nav2">
+      <li>0</li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <script>
+      // container 안에 있는 자식 p만 선택(손자p는 선택 안됨)
+      $("#container").children("p").css({
+        background: "red",
+        color: "#fff",
+      });
+      // container 안에 있는 후손들 중 모든 p 선택
+      $("#container").find("p").css({ fontSize: "20px" });
+
+      // 부모: parent(), 조상: parents("조상이름")
+      // part1의 부모 선택
+      $("#part1").parent().css({
+        border: "3px solid green",
+      });
+      // contchild의 할아버지 container 선택
+      $("#contchild").parents("#container").css({
+        border: "1px solid #444",
+      });
+
+      // ul의  li선택
+      $("ul>li:first-child").css({
+        color: "red",
+      });
+
+      $("ul>li:last-child").css({
+        color: "blue",
+      });
+      $("ul>li:nth-child(2)").css({
+        color: "pink",
+      });
+      // odd(홀수)와 even(짝수)은 인덱스번호로 홀짝을 구분함. 인덱스번호는 0부터 시작함
+      $("ul>li:odd").css({
+        color: "yellow",
+      });
+
+      // first-child, last-child, nth-child(n)은 첫번째가 1임
+      // eq(), odd, even은 첫번째가 0번임
+      // eq()는 관계와 상관없이 먼저 마크된 순서대로 인덱스 번호가 부여됨
+      $("ul > li").eq(6).css({
+        fontSize: "30px",
+      });
+      $("ul>li").eq(-3).css({
+        background: "green",
+      });
+
+      // siblings() : 나를 제외한 나의 모든 형제들(사촌은 포함 안됨)
+      $("#nav1 li").eq(1).siblings().css({
+        background: "yellow",
+      });
+
+      // next(): 바로 다음 형제요소     nextAll() : 다음 형제요소 전부 다
+      $("#part1").next().css({
+        border: "10px solid violet",
+      });
+
+      // prev(): 바로 이전 형제요소     prevAll() : 이전 형제요소 전부 다
+      $("#part1").prev().css({
+        border: "10px solid purple",
+      });
+
+      // 배열의 filter()와 구분하여 사용할 것 : 배열.filter(함수(value, index){})
+      // filter('선택자'), filter(함수(index, 선택자){})
+      $("ul li").filter(".special").css({
+        margin: "10px 0",
+      });
+      // 3의 배수번째 li들에 border를 적용할 것
+      $("ul li")
+        .filter(function (index, selector) {
+          return index % 3 == 0;
+        })
+        .css({ border: "3px solid pink" });
+    </script>
+  </body>
+</html>

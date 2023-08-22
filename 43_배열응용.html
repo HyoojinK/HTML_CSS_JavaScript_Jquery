@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      newstudent="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      form {
+        max-width: 500px;
+        margin: 50px auto;
+      }
+      #content {
+        max-width: 500px;
+        margin: 50px auto;
+      }
+      #content span {
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content"></div>
+    <form action="#">
+      <input type="text" id="irum" />
+      <button onclick="add()">추가</button>
+      <button onclick="remove()">삭제</button>
+      <button onclick="modify()">수정</button>
+    </form>
+    <script>
+      var students = ["김은영", 100, "장나라", 80, "홍길동", 90];
+      let content = document.querySelector("#content");
+      let newstudents = students.filter((value) => typeof value === "string");
+      let irum = document.querySelector("#irum");
+      //   위의 배열을 활용하여 학생 이름만 필터링해서 #content에 아래 내용을 출력하시오.       // forEach(), filter(), innerHTML, 함수사용
+      /*
+        <ul>
+            <li>김은영님 환영합니다.</li>
+            <li>장나라님 환영합니다.</li>
+            <li>홍길동님 환영합니다.</li>
+        <ul>
+      */
+      function init() {
+        let list = "<ul>";
+        newstudents.forEach(
+          (value) => (list += `<li><span>${value}</span>님 환영합니다.</li>`)
+        );
+        list += "</ul>";
+        content.innerHTML = list;
+      }
+      init();
+
+      //   function add() {
+      //     if (irum.value) {
+      //       newstudents.push(irum.value);
+      //       irum.value = "";
+      //       init();
+      //     }
+      //   }
+
+      function add() {
+        if (irum.value === "") {
+          alert("이름을 입력해주세요.");
+        } else {
+          for (let i = 0; i < newstudents.length; i++) {
+            if (irum.value === newstudents[i]) {
+              alert("중복된 이름입니다.");
+              irum.value = "";
+              return;
+            }
+          }
+          newstudents.push(irum.value);
+          irum.value = "";
+          init();
+        }
+      }
+
+      function remove() {
+        if (irum.value) {
+          let findIndex = newstudents.indexOf(irum.value);
+          if (findIndex !== -1) {
+            newstudents.splice(findIndex, 1);
+            irum.value = "";
+            init();
+          } else {
+            alert("존재하지 않는 회원입니다.");
+            irum.value = "";
+          }
+        }
+      }
+
+      function modify() {
+        if (irum.value) {
+          let findIndex = newstudents.indexOf(irum.value);
+          if (findIndex !== -1) {
+            let newirum = prompt("수정할 이름을 입력하세요.", "");
+            newstudents.splice(findIndex, 1, newirum);
+            irum.value = "";
+            init();
+          } else {
+            alert("존재하지 않는 회원입니다.");
+            irum.value = "";
+          }
+        }
+      }
+
+      //   배열.find(function(value, index){}) : 조건에 맞는 첫번째 값을 반환
+      num = [100, 200, 300, 400, 500];
+      let findnum = num.find((value) => value > 300);
+      document.write(findnum + "<br>");
+
+      // 배열.findIndex(function(value, index){}) : 조건에 맞는 첫번째 값의 인덱스 값을 반환(값이 없으면 -1 반환)
+      let findIndexNum = num.findIndex((value) => {
+        return value >= 300;
+      });
+      document.write(findIndexNum + "<br>");
+    </script>
+  </body>
+</html>
+
+<!--
+//forEach를 for문으로 바꾸면
+    for (let i = 0; i < newstudent.length; i++) {
+    list += `<li>${newstudent[i]}님 환영합니다.</li>`;
+    }
+
+//for문을 for-in문으로 바꾸면
+    for (let i in newstudent) {
+    list += `<li>${newstudent[i]}님 환영합니다.</li>`;
+    }
+    -->

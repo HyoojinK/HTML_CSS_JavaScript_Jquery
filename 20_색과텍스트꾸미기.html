@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        글자색 : color
+        배경색 : background-color
+        선색 : border-color
+        흰색의 색상값 : #ffffff, rgba(255,255,255,0.5), white
+                                 a(alpha) : 색상의 불투명도 0~1
+    -->
+    <style>
+      html {
+        font-size: 12px;
+      }
+      body {
+        font-size: 20px;
+      }
+      h3 {
+        background-color: rgba(255, 0, 0, 0.5);
+        color: rgba(255, 255, 0, 1);
+      }
+      div {
+        /* 글자크기 : font-size: 16px(1em, 100%) */
+        font-size: 20px;
+      }
+      h4 {
+        font-size: 20px;
+        /* 들여쓰기 : text-indent */
+        text-indent: 2em;
+        /* 가로 정렬 : text-align       left, right, center, justify*/
+        text-align: center;
+        /* 줄 장식 : text-decoration    underline(밑줄), line-through(중간), overline(위) */
+        text-decoration: overline;
+        /* 글꼴 : font-family */
+        font-family: "Times New Roman", Times, serif;
+        /* 폰트 스타일 : font-style     italic, normal */
+        font-style: normal;
+        /* 폰트 굵기 : font-weight      bold(700),  100~900, normal*/
+        font-weight: 500;
+      }
+      p {
+        /* 줄 간격 : line- height */
+        /*
+              font-style:italic;
+              font-weight:bold;
+              font-size:20px;
+              line-height: 1.5em;
+              font-family: '궁서체', serif;
+        */
+        font: italic bold 20px/1.5em "궁서체", serif;
+      }
+    </style>
+    <h3>김효진</h3>
+    <div>
+      <h4>홍길동(Hong Gil Dongs)</h4>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa expedita
+        id, quam dolore in fugit quia ad consequuntur ullam eligendi rem fugiat
+        aut recusandae, cumque hic laboriosam Lorem ipsum, dolor sit amet
+        consectetur adipisicing elit. At dolorum incidunt facilis numquam
+        inventore accusantium unde reiciendis in sequi tenetur voluptate sunt
+        ipsam assumenda rerum voluptas labore velit, dolor eius? Lorem, ipsum
+        dolor sit amet consectetur adipisicing elit. Nulla quidem voluptas cum
+        ipsum in saepe eos similique sint illo maiores corporis nemo, optio
+        accusantium! Molestias, placeat! Ex libero maxime ea. dolores laudantium
+        atque! Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+        voluptas quaerat obcaecati recusandae eos, excepturi quae, error tempore
+        illo impedit, dolorum aperiam deleniti unde! Sint tempore officia dolor
+        voluptatum soluta.
+      </p>
+    </div>
+    <strong style="font-size: 2rem">홍길동</strong>
+  </body>
+</html>

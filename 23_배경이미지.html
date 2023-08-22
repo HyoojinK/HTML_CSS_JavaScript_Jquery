@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      div#box1 {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        background-color: pink;
+        background-image: url(./sample/2장/푸바옹.jpg);
+        background-size: cover;
+        /*
+        contain : 배경이미지가 오버플로우가 발생하지 않음
+        cover : 공간을 배경이미지로 꽉 채우기때문에 오버플로우가 발생할 수 있음
+        */
+        background-repeat: no-repeat;
+        background-position: -120px center;
+        /*
+        left(0), top(0), right(100%), botton(100%), center(50%)
+        */
+      }
+
+      div#box2 {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        background: pink url(./sample/2장/푸바옹.jpg) no-repeat 100% 100%;
+        background-size: 100px auto;
+      }
+
+      div#box3 {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        margin: 50px auto;
+        background-image: url(./sample/2장/푸바옹.jpg),
+          url(./sample/5장/media/spade-3.png);
+        background-repeat: no-repeat;
+        background-size: 200px auto, 150px auto;
+        background-position: left top, right bottom;
+      }
+    </style>
+    <hr />
+    <div id="box1" background-image="url(./sample/2장/푸바옹.jpg)"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+  </body>
+</html>

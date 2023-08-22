@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">클릭</button>
+
+    <script>
+      let btn = document.querySelector("#btn");
+      btn.addEventListener("click", addBox);
+      //   btn.onclick = addBox; <<이렇게 써도 됨
+      function addBox() {
+        // document.body.innerHTML = `<div class="box"><p>자바스크립트</p></div>`; // 기존html을 지워버림
+        let div = document.createElement("div"); // createElement = 요소를 생성하는 메서드
+        let p = document.createElement("p");
+        let txt = document.createTextNode("자바스크립트"); // createTextNode : 텍스트를 생성하는 메서드
+        p.appendChild(txt); // appendChild() = 생성한 요소를 부모의 마지막 자식의 관계로 만들어주는 메서드
+        div.appendChild(p);
+        document.body.appendChild(div);
+        div.classList.add("box");
+
+        let h1 = document.createElement("h1");
+        let txt1 = document.createTextNode("김효진");
+        h1.appendChild(txt1);
+        document.body.insertBefore(h1, btn); // insertBefore(a, b) = 생성한 요소를 지정한 요소의 바로앞(형제)에 추가하는 메서드(a가 b앞에 추가가 됨)
+      }
+    </script>
+  </body>
+</html>

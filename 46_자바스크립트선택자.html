@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>홍길동</p>
+    <nav id="gnb">
+      <ul>
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+      </ul>
+    </nav>
+    <p>김효진</p>
+    <script>
+      // parentNode : 부모노드를 가리키는 속성
+      // childNodes[] : 자식노드들을 가리키는 속성(공백도 자식으로 봄(ul다음에 있는 공백이 1번))
+      // children[n] : 자식 노드들을 가리킴
+      // nextSibling : 선택된 요소의 다음 형제 노드를 선택함(공백포함)
+      // nextElementSibling : 선택된 요소의 다음 형제 노드를 선택함
+      // previousSibling : 선택된 요소의 이전 형제 노드를 선택함(공백포함)
+      // previousElementSibling : 선택된 요소의 이전 형제 노드를 선택함
+      // firstchild : 선택된 요소의 첫번째 자식노드를 선택함(공백포함)
+      // firstElementChild : 선택된 요소의 첫번째 자식노드를 선택함
+      // lastChild : 선택된 요소의 마지막 자식 노드를 선택함(공백포함)
+      // lastElementChild : 선택된 요소의 마지막 자식 노드를 선택함
+      let gnb = document.querySelector("#gnb");
+      gnb.parentNode.style.background = "pink";
+      gnb.childNodes[1].style.border = "1px solid yellow";
+      gnb.childNodes[1].children[0].style.color = "#fff";
+      gnb.nextElementSibling.style.background = "red";
+      gnb.previousElementSibling.style.background = "blue";
+      gnb.children[0].lastElementChild.style.background = "green";
+    </script>
+  </body>
+</html>

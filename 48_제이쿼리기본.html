@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>아이디선택자, 클래스선택자, 태그선택자</h2>
+    <div id="container">
+      <!-- p.p$*3 => p1,p2,p3... 클래스를 가진 p태그가 만들어짐 -->
+      <p class="p1">자식1</p>
+      <p class="p2">자식2</p>
+      <p class="p3">자식3</p>
+    </div>
+    <!-- <h2>부모(parent), 자식(children), 조상(parents), 후손(find), 이전형제, 다음형제(next)</h2> -->
+
+    <script>
+      // $("태그명") <<제이쿼리라는 뜻(cdn이 들어갔다면 이렇게 표시해도 됨)
+      let h2 = document.querySelector("h2");
+      h2.style.background = "pink";
+      h2.style.color = "fff";
+
+      let $container = $("#container"); //변수명에 $표시 떼도 됨
+      $container.css({
+        border: "3px solid green",
+      });
+
+      $("#container p:nth-child(1)").css({
+        color: "red",
+      });
+    </script>
+  </body>
+</html>

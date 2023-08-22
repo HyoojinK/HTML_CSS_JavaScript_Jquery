@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트리스너 속성에 자바스크립트 코드 작성</title>
+    <!-- 헤드구역에 내부스크립트를 넣을때는 window.onload = function() { 코드 }; (바디구역을 다 읽고 로드까지 한 후에 실행해줘) -->
+    <!--
+       <script>
+       window.onload = function () {
+        var img = document.getElementsByTagName("img");
+        img[0].onmouseover = function () {
+        this.src = "./sample/6장/media/banana.png";
+        this.style.border = "2px solid red";
+        };
+        img[0].onmouseout = function () {
+        this.src = "./sample/6장/media/apple.png";
+        this.style.border = "2px solid blue";
+        };
+       };
+        </script>
+    -->
+
+    <!-- 헤드구역에 외부스크립트를 넣을때는 외부스크립트에 window.onload = function(){ 코드 }; -->
+    <!-- 외부스크립트 주소 바깥("")에 'defer'라는 속성을 넣어도 됨(오페라 브라우저는 호환 되지 않음) -->
+    <script src="./js/myscript.js"></script>
+  </head>
+  <body>
+    <h3>마우스를 올려보세요</h3>
+    <hr />
+    <!--    인라인 스크립트
+        <img
+        src="./sample/6장/media/apple.png"
+        onmouseover="this.src='./sample/6장/media/banana.png'"
+        onmouseout="this.src='./sample/6장/apple/apple.png'"
+        alt="사과"
+        />
+    -->
+    <img src="./sample/6장/media/apple.png" alt="사과" />
+
+    <!-- 내부스크립트 (외부스크립트로 옮겨져서 주석처리)
+        <script>
+        var img = document.getElementsByTagName("img");
+        img[0].onmouseover = function () {
+            this.src = "./sample/6장/media/banana.png";
+            this.style.border = "2px solid red";
+        };
+        img[0].onmouseout = function () {
+            this.src = "./sample/6장/media/apple.png";
+            this.style.border = "2px solid blue";
+        };
+        </script>
+    -->
+
+    <!--      외부스크립트 연결
+        <script src="./js/myscript.js"></script>
+    -->
+  </body>
+</html>

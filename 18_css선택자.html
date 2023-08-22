@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style18.css" />
+  </head>
+  <body>
+    <!--
+        스타일 적용 방법의 우선순위
+        1. 인라인스타일 : 태그 뒤에 바로 나옴(style="")
+        2. 내부스타일 : head 구역에 <style>로 감싸서 적용
+        3. 외부스타일 : css 파일을 만들어서 <link>로 연결
+     -->
+    <h3 style="color: blue">CSS 스타일 맛보기</h3>
+    <hr />
+    <!-- 
+        1. 부모의 스타일 속성은 대부분 자식에게 상속됨        
+        2. id(#) 선택자는 중복되면 안됨
+        3. class(.) 선택자는 중복 가능
+        4. 선택자 우선순위 : id > class > 태그 > 전체
+     -->
+    <div id="ps">
+      <p class="first">나는 <span>웹 프로그래밍</span>을 좋아합니다.</p>
+      <p class="second">나는 두번째 p 태그입니다.</p>
+    </div>
+
+    <div>
+      <ul id="list1" class="depth1">
+        <li class="first">리스트1</li>
+        <li class="second">리스트2</li>
+        <li class="third">리스트3</li>
+      </ul>
+
+      <ul id="list2">
+        <li class="first">리스트1</li>
+        <li class="second">
+          리스트2
+          <ul>
+            <li>중첩리스트1</li>
+            <li>중첩리스트2</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

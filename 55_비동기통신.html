@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비동기통신(동시에 하지 않는)</title>
+  </head>
+  <body>
+    <!-- 
+        1. 자바스크립트 비동기통신
+        let xhr = new XMLHttpRequest()
+        데이터요청 : xhr.open('요청방식', '요청데이터경로', 동기/비동기선택)
+                    요청방식 : GET, POST
+                    동기/비동기 : true(비동기, 기본값), false(동기)
+        요청전송 : xhr.send()
+        응답 : xhr.onload = function(){
+                if(xhr.status === 200){
+                  let data = JSON.parse(xhr.responseText)
+                  console.log(data)
+                } else {
+                    alert(xhr.status + "/" + xhr.errorText)
+                }
+              }
+        2. 제이쿼리 비동기통신
+              $.ajax{
+                type : 'GET',                    // GET : url 끝에 ? 뒤에 요청값을 보냄, POST : form 요소에서 사용자가 입력한 값을 요청값으로 보냄
+                url : '요청데이터경로',
+                dataType : 'json',               // json, xml
+                async : true,                    // true이면 비동기(기본값), false이면 동기
+                beforeSend : function(){ },      // 요청하기 전에 수행할 내용(로딩애니메이션)
+                complete : function(){ },        // 요청이 완료되면 수행할 내용(로딩애니메이션 제거)
+                success : function(response){    // 매개변수(response)에 요청데이터가 저장됨
+                        console.log(response)
+              },
+              error : function(xhr){             // 매개변수에 오류정보가 저장됨  
+                    alert(xhr.status + "/" + xhr.errorText)
+              }
+     -->
+  </body>
+</html>

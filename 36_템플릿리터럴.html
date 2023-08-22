@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>for 문으로 10px~35px 크기 출력</h3>
+    <hr />
+    <script>
+      for (let size = 10; size <= 35; size += 5) {
+        // 5씩 증가
+        document.write("<span ");
+        // document.write("style='font-size:" + size + "px'>");
+        // `백틱으로 출력내용을 감싸서 표현하면 편리함-변수표시는 ${변수}`
+        document.write(`<span style='font-size:${size}px'>`);
+        document.write(`${size}px`);
+        document.write("</span>");
+      }
+    </script>
+  </body>
+</html>

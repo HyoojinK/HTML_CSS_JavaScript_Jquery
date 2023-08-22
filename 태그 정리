@@ -1,0 +1,10 @@
+1. 블록태그
+    - 한줄에 하나씩 표시됨(줄바꿈이 발생)
+    - <h1> ~<h6>, <p>, <hr>, <ul>, <ol>, <li>, <dl>, <dt>, <dd>, <div>, <table>, <header>, <footer>, <nav>, <section>, <article>, <aside>
+
+2. 인라인태그
+    - 한줄에 여러개 표시됨(줄바꿈이 발생하지 않음)
+    - <strong>, <em>, <span>, <img>, <a>, <mark>, <time>, <meter>, <progress>
+
+
+

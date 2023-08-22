@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>제이쿼리class</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <!-- 
+        addClass('클래스명') : 클래스 추가
+        removeClass('클래스명') : 클래스 삭제
+        toggleClass('클래스명') : 클래스 추가/삭제
+        hadClass('클래스명') : 클래스 유무 판단 (클래스를 갖고 있으면 true, 없으면 false를 리턴)
+     -->
+    <div>
+      <i class="fa-solid fa-bars"></i>
+      <!-- <i class="fa-solid fa-square-xmark"></i> -->
+    </div>
+
+    <script>
+      $("div i").on("click", function () {
+        // if (!$(this).hasClass("fa-square-xmark")) {
+        //   $(this).removeClass("fa-bars").addClass("fa-square-xmark");
+        // } else {
+        //   $(this).removeClass("fa-square-xmark").addClass("fa-bars");
+        // }
+        $(this).toggleClass("fa-bars fa-square-xmark");
+      });
+    </script>
+  </body>
+</html>

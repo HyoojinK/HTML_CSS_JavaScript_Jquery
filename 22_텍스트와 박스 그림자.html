@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        text-shadow : 수평방향그림자거리값   수직방향그림자거리값   블러값   그림자색상;
+        수평방향그림자거리값 : 양수면 오른쪽 방향으로 그림자 생김, 음수는 왼쪽방향, 0값이면 그림자가 안보임
+        수직방향그림자거리값 : 양수면 아래쪽 방향으로 그림자 생김, 음수는 위쪽방향, 0값이면 그림자가 안보임
+        블러값 : 0은 선명한 그림자, 1px 이상부터 흐림효과가 적용된 그림자
+        text-shadow : 0 0 0 black;
+        
+        box-shadow : 수평그림자거리값   수직그림자거리값   블러값   크기값   그림자색상   그림자방향;
+    -->
+    <style>
+      /* * {
+        cursor: pointer;
+      } */
+      button {
+        cursor: url(./sample/5장/media/marker.png), auto;
+      }
+      div {
+        width: 300px;
+        height: 300px;
+        margin: 50px auto;
+        background-color: orange;
+        box-shadow: 0px 0px 10px 0px gray inset;
+      }
+      div:hover {
+        box-shadow: 0px 0px 10px 0px gray;
+      }
+    </style>
+    <button type="button">김효진</button>
+    <div>박스에 그림자 효과 적용하기</div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        1. 인라인이벤트 모델 : html 요소에 직접 이벤트를 연결하는 방식
+        2. 기본이벤트 모델 : 이벤트를 연결할 html 요소를 취득한 후 이벤트를 객체의 메서드 형식으로 연결함
+        3. 표준이벤트 모델 : 객체.addEventListener('이벤트명', 함수)의 방식으로 이벤트를 연결함
+     -->
+    <h1><p>김효진</p></h1>
+    <!-- <button type="button" id="btn1" onclick="changeText()">클릭</button> -->
+    <button type="button" id="btn1">클릭</button>
+
+    <!-- 
+        자바스크립트에서 사용을 할 땐 앞에 on을 붙혀서 사용함!(onclick, ondbclick, )
+        마우스 이벤트 종류 : click, dblclick, mouseover/mouseout, mouseenter/mouseleave, mousedown, mouseup, mousemove, select 
+        키 이벤트 종류 : keydown, keyup, keypress
+        form 이벤트 종류 : focus, blur, change, submit, reset
+        윈도우 이벤트 종류 : load, abort, resize, scroll
+     -->
+
+    <script>
+      let elP = document.querySelector("p");
+      function changeText() {
+        elP.textContent = "클릭이벤트가 발생했습니다.";
+      }
+      function changeColor() {
+        elP.style.color = "red";
+      }
+
+      let elBtn = document.querySelector("#btn1");
+
+      // 기본이벤트 모델은 객체에 동일한 이벤트가 있을 때 마지막것 하나만 적용
+      //   elBtn.onclick = changeText; // 이벤트 리스너에 연결되는 함수호출문은 괄호() 금지! 클릭하기도 전에 함수가 호출되어버림
+      //   elBtn.onclick = changeColor;
+
+      // 표준이벤트 모델은 객체에 동일한 이벤트가여러번 적용됨
+      elBtn.addEventListener("click", changeText);
+      elBtn.addEventListener("click", changeColor);
+    </script>
+  </body>
+</html>

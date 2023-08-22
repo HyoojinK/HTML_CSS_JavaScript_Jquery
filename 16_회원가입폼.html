@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <h2>회원가입</h2>
+    <form action="#" method="post" name="join" autocomplete="off">
+      <table border="1" width="600">
+        <colgroup>
+          <col width="20%" />
+          <col width="auto" />
+        </colgroup>
+        <tr>
+          <th>아이디</th>
+          <td>
+            <input type="text" name="userid" />
+          </td>
+        </tr>
+        <tr>
+          <th>비밀번호</th>
+          <td><input type="text" name="userpw" placeholder="6글자 이상" /></td>
+        </tr>
+        <tr>
+          <th>성별</th>
+          <td>
+            <label for="man">남</label
+            ><input id="man" type="radio" name="gender" value="m" />
+            <label for="woman">여</label
+            ><input id="woman" type="radio" name="gender" value="w" />
+          </td>
+        </tr>
+        <tr>
+          <th>취미</th>
+          <td>
+            <label for="mountain">등산</label
+            ><input id="mountain" type="checkbox" name="hobby" value="등산" />
+            <label for="piano">피아노</label
+            ><input id="piano" type="checkbox" name="hobby" value="피아노" />
+            <label for="swim">수영</label
+            ><input id="swim" type="checkbox" name="hobby" value="수영" />
+          </td>
+        </tr>
+        <tr>
+          <th>좋아하는 색</th>
+          <td><input type="color" name="color" value="#fffd00" /></td>
+        </tr>
+        <tr>
+          <th>생년월일</th>
+          <td><input type="date" name="birthday" /></td>
+        </tr>
+        <tr>
+          <th>좋아하는 숫자</th>
+          <td><input type="number" name="number" /></td>
+        </tr>
+        <tr>
+          <th>이메일</th>
+          <td>
+            <input type="text" name="eid" />@
+            <input type="text" name="edomain" />
+            <select>
+              <option value="naver.com">naver.com</option>
+              <option value="daum.net">daum.net</option>
+              <option value="">직접입력</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>검색</th>
+          <td>
+            <input type="search" />
+          </td>
+        </tr>
+        <tr>
+          <th>첨부파일</th>
+          <td>
+            <input type="file" />
+          </td>
+        </tr>
+        <tr>
+          <th>하고싶은 말</th>
+          <td>
+            <textarea name="memo" id="memo" cols="30" rows="10"></textarea>
+          </td>
+        </tr>
+      </table>
+      <div>
+        <button type="submit">전송</button>
+        <button type="reset">취소</button>
+      </div>
+    </form>
+  </body>
+</html>

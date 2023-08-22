@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notice</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/rwd.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <div class="header"></div>
+    <section id="notice">
+      <div class="row">
+        <div class="title">
+          <h2><span></span>Notice</h2>
+          <p><span></span>홈페이지의 공지사항을 볼 수 있습니다.</p>
+        </div>
+
+        <div class="board">
+          <table>
+            <colgroup>
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>글쓴이</th>
+                <th>날짜</th>
+                <th>조회수</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>11</td>
+                <td>6장 9-(2)번 정답(학생용) 오류 수정 안내</td>
+                <td>황기태</td>
+                <td>2022.09.13</td>
+                <td>315</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>
+                  2022.1.15(토) 오전 8시 ~ 1.17(월) 오전 9시까지 서비스 일시
+                  중단 안내
+                </td>
+                <td>황기태</td>
+                <td>2022.01.14</td>
+                <td>226</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>
+                  [정답 수정] 13장에서 1번의 (2)문제 정답은 반복 재생입니다.
+                </td>
+                <td>황기태</td>
+                <td>2021.05.29</td>
+                <td>509</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>
+                  [중요]예제 9-10을 최근 크롬에서 실행하려면 다음과 같이 고쳐야
+                  합니다.
+                </td>
+                <td>황기태</td>
+                <td>2021.05.16</td>
+                <td>611</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>집에 있는 PC에 몽구스를 설치하고 집 외부에서 접속하기</td>
+                <td>황기태</td>
+                <td>2018.03.16</td>
+                <td>2040</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>초심자 분들을 위한 웹 프로그래밍 스타팅 가이드라인 게시</td>
+                <td>관리자</td>
+                <td>2017.06.29</td>
+                <td>2084</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>
+                  &lt;meta charset="utf-8"&gt; 태그를 삽입하여 브라우저에서
+                  정상적인 한글 출력
+                </td>
+                <td>황기태</td>
+                <td>2017.05.06</td>
+                <td>1453</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>폼과 웹 서버의 연동하기 예제 삽입</td>
+                <td>황기태</td>
+                <td>2017.05.06</td>
+                <td>1355</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>연습문제 3장의 이론문제 8번에서</td>
+                <td>황기태</td>
+                <td>2017.04.03</td>
+                <td>1786</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>책에 있는 예제 3-1의 코드</td>
+                <td>황기태</td>
+                <td>2017.03.27</td>
+                <td>820</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>HTML 페이지 편집기, 서브라임 텍스트3 다운로드 받기</td>
+                <td>관리자</td>
+                <td>2017.01.16</td>
+                <td>1596</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="btn">
+          <a href="notice.html"
+            ><i class="fa-solid fa-bars"></i><span>목록</span></a
+          >
+          <form action="#" method="post" name="searchbox" class="searchbox">
+            <fieldset>
+              <legend>검색</legend>
+              <input type="text" />
+              <button type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <label for="">검색</label>
+            </fieldset>
+            <fieldset>
+              <legend>검색범위</legend>
+              <select name="searchTit" id="searchTit">
+                <option value="opt1">제목+내용</option>
+                <option value="opt2">제목</option>
+                <option value="opt3">내용</option>
+                <option value="opt4">댓글</option>
+                <option value="opt5">이름</option>
+                <option value="opt6">아이디</option>
+                <option value="opt7">닉네임</option>
+                <option value="opt8">태그</option>
+              </select>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div class="footer"></div>
+
+    <script src="./js/common.js"></script>
+  </body>
+</html>

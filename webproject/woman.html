@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>교재 사이트리스트</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/rwd.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <div class="header"></div>
+    <section class="prdBox row">
+      <div class="title">
+        <h2>여성의류</h2>
+      </div>
+      <div class="list">
+        <ul class="subcate">
+          <li class="on"><a href="javadcript:;">쟈켓</a></li>
+          <li><a href="javadcript:;">아우터</a></li>
+          <li><a href="javadcript:;">셔츠</a></li>
+          <li><a href="javadcript:;">팬츠</a></li>
+        </ul>
+        <div class="product">
+          <!-- <ul>
+            <li>
+              <a href="./detail.html">
+                <img src="./img/4바 타탄 블레이저.jpg" alt="" />
+                <div class="info">
+                  <p class="name">상품명</p>
+                  <p class="price">판매가</p>
+                </div>
+              </a>
+            </li>
+          </ul> -->
+        </div>
+      </div>
+    </section>
+    <div class="footer"></div>
+
+    <script>
+      let data = "";
+      $.ajax({
+        type: "GET",
+        url: "./js/data.json",
+        dataType: "json",
+        success: function (rdata) {
+          // console.log(rdata.woman);
+          data = rdata.woman;
+          usedata("쟈켓");
+        },
+        error: function (xhr) {
+          alert(xhr.status + "/" + xhr.errorText);
+        },
+      });
+    </script>
+
+    <script src="./js/prdlist.js"></script>
+    <script src="./js/common.js"></script>
+  </body>
+</html>

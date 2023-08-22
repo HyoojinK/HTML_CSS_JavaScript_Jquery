@@ -1,0 +1,981 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/css2?family=Nanum+Gothic&display);
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.cf::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+img {
+  max-width: 100%;
+}
+table {
+  border-collapse: collapse; /* border-collase -> 표 이중선 없애는 코드 */
+  width: 100%;
+  table-layout: fixed;
+}
+.row {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+::placeholder {
+  font-size: 13px;
+  color: red;
+}
+.blind {
+  /*blind 클래스 = 화면에 아예 안보이게 할 내용*/
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  line-height: 0px;
+  text-indent: -9999px;
+}
+
+#header {
+  /* max-width: 1200px;
+ border: 1px solid #000;
+  margin: 0 auto; */
+  padding: 00px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: white;
+  box-shadow: 0 1px #ddd;
+}
+#header > div {
+  position: relative;
+}
+#header .opennav {
+  display: none;
+}
+#header .mobnavclose {
+  display: none;
+}
+#header h1 {
+  float: left;
+  margin-top: 10px;
+}
+#header .member {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  font-size: 12px;
+  z-index: 10;
+  color: #888;
+  font-weight: bold;
+}
+#header .member a {
+  margin-left: 10px;
+}
+#header nav {
+  float: right;
+}
+nav .depth1 > li > i {
+  display: none;
+}
+nav .depth1 > li {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: #888888;
+  /* display: inline-block; */
+  padding: 40px 20px;
+  float: left;
+  border: 0px solid black;
+  position: relative;
+  transition: all 0.5s;
+}
+nav .depth2 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 220px;
+  background: #333;
+  padding: 10px 0px;
+  border-top: 3px solid #cda25a;
+  opacity: 0;
+  z-index: 1;
+  transition: 0.5s;
+}
+nav .depth1 > li:hover {
+  color: #444;
+}
+nav .depth1 > li:hover .depth2 {
+  opacity: 1;
+}
+nav .depth2 > li {
+  font-size: 13px;
+  color: #9d9d9d;
+  line-height: 3;
+}
+nav .depth2 > li > a {
+  display: block;
+  padding: 0 20px;
+}
+nav .depth2 > li > a:hover {
+  color: #cda25a;
+}
+/* #section {
+  max-width: 1200px;
+  margin: 0 auto;
+} */
+
+/* 상품진열장 화면 */
+.prdBox {
+  text-align: center;
+  margin: 20px auto;
+}
+.prdBox .list .subcate {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.prdBox .list .subcate li {
+  margin: 0 10px;
+}
+.prdBox .list .subcate li.on a {
+  font-weight: bold;
+}
+.prdBox .product ul {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.prdBox .product ul li {
+  width: 25%;
+  margin: 20px 10px;
+}
+
+/* 메인화면 섹션 */
+#section {
+  position: relative;
+}
+/*
+박스의 겹침 우선순위
+1. 조건이 같을 때는 코딩 순서로 겹침(position이 다같이 있거나 다같이 없는 조건)
+2. position을 갖고 있으면 우선순위가 높아짐
+3. z-index 속성으로 강제로 우선순위를 높여줌
+*/
+#section article:nth-child(2) > div {
+  width: 32%;
+  float: left;
+  text-align: center;
+  overflow: hidden;
+}
+#section article:nth-child(2) > div img {
+  max-width: 100%;
+  transition: all 0.5s;
+}
+#section article:nth-child(2) > div:hover img {
+  transform: scale(0.5);
+}
+
+#section article:nth-child(2) > div:nth-child(2) {
+  margin: 0 2%;
+}
+
+/* article3 표 */
+#section article:nth-child(3) ul li {
+  width: 49%;
+  float: left;
+  margin-top: 30px;
+}
+
+#section article:nth-child(3) ul li:nth-child(odd) {
+  margin-right: 2%;
+}
+
+#section article:nth-child(3) ul li h2 {
+  font-size: 12px;
+  color: #333;
+  border-bottom: 2px solid #000;
+  margin-bottom: 10px;
+}
+
+#section article:nth-child(3) ul li h2 a {
+  border: 1px solid #bbb;
+  padding: 8px 15px;
+  letter-spacing: -0.5px;
+  border-radius: 3px 3px 0 0;
+  display: inline-block;
+}
+
+#section article:nth-child(3) ul li h2 a:hover {
+  text-decoration: underline;
+}
+
+#section article:nth-child(3) ul li table td {
+  border: 0px solid #000;
+  font-size: 12px;
+  padding: 1px 5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#section article:nth-child(3) ul li table td:nth-child(2) {
+  font-size: 11px;
+  text-align: center;
+  width: 110px;
+}
+
+#section article:nth-child(3) ul li table td:nth-child(3) {
+  font-size: 11px;
+  text-align: center;
+  width: 80px;
+}
+#section article:nth-child(3) ul li table td:nth-child(2) span {
+  color: #888888;
+}
+
+/* article5 방문자수 */
+#section article:nth-child(4) {
+  padding: 30px 0;
+}
+#section article:nth-child(4) dl {
+  font-size: 12px;
+  color: #333;
+}
+
+#section article:nth-child(4) dl dt {
+  float: left;
+  clear: both;
+  padding-right: 1em;
+}
+#section article:nth-child(4) dl dd {
+  float: left;
+}
+
+/* footer */
+/* #footer {
+  max-width: 1200px;
+  margin: 0 auto;
+} */
+#footer .bottom-menu {
+  padding: 30px 0;
+  background: #f1f1f1;
+}
+#footer .bottom-menu h1 {
+  width: 25%;
+  float: left;
+  padding: 0 20px;
+}
+
+#footer .bottom-menu h1 img {
+  /* transform: translate(0px);
+  transition: all 0.5s 1s; */
+  animation-name: slideOutDown;
+  animation-duration: 1s; /* 애니메이션 진행 시간(대기시간보다 앞에 적어야 함!)*/
+  animation-timing-function: ease;
+  animation-iteration-count: infinite; /*애니메이션 반복 횟수 infinite=무한반복*/
+  animation-direction: alternate; /* alternate 반복 끝내고 돌아갈때 부드럽게 돌아감 */
+  animation-delay: 0s; /*애니메이션 대기 시간*/
+  animation-fill-mode: both; /* both 한번 실행하고 아예 사라짐 */
+}
+/* #footer .bottom-menu h1:hover img {
+  transform: translate(0, 10px) scale(0.5) rotate(10deg) skew(30deg);
+} */
+
+#footer .bottom-menu > div > div {
+  width: 75%;
+  float: left;
+}
+
+#footer .bottom-menu .depth1 > li {
+  width: 33.33%;
+  float: left;
+  padding: 0 20px;
+  border-left: 1px solid #999;
+  height: 144px;
+}
+#footer .bottom-menu .depth1 > li > a {
+  font-size: 15px;
+  color: #555;
+  font-weight: bold;
+}
+
+#footer .bottom-menu .depth2 {
+  margin: 20px 0 0;
+}
+
+#footer .bottom-menu .depth2 li {
+  margin: 13px 0;
+}
+
+#footer .bottom-menu .depth2 li a {
+  font-size: 13px;
+  color: #888;
+  font-weight: normal;
+}
+#footer .company-info {
+  background: #555;
+  padding: 19px;
+  font-size: 13px;
+  color: #f1f1f1;
+  border-bottom: 3px solid rgb(166, 36, 67);
+}
+#footer .company-info span:nth-child(1) {
+  float: left;
+}
+
+#footer .company-info span:nth-child(2) {
+  float: right;
+}
+
+/* aboutbook 화면 스타일 */
+#aboutbook {
+  font-family: sans-serif;
+  font-size: 14px;
+  padding: 10px 20px;
+  margin: 0 auto;
+  line-height: 23px;
+}
+#aboutbook span {
+  font-weight: bold;
+}
+#aboutbook div {
+  padding-bottom: 20px;
+}
+h1 {
+  font-size: 26px;
+  color: #b22222;
+  font-weight: bold;
+  padding: 10px 0;
+}
+#webprogramming .third span:nth-child(2) {
+  color: #000080;
+}
+
+#webprogramming {
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid #9d9d9d;
+}
+#index {
+  padding-top: 20px;
+}
+#aboutbook h4 {
+  color: #800080;
+  font-size: 18px;
+}
+#aboutbook article > div > p {
+  padding-left: 40px;
+}
+
+/* notice 게시판 */
+#notice {
+  padding: 30px 0;
+}
+#notice .title {
+  padding: 20px 0;
+}
+#notice .title h2 {
+  font-size: 16px;
+  color: #555;
+  line-height: 22px;
+  position: relative;
+  padding-left: 20px;
+}
+#notice .title h2 span {
+  display: inline-block;
+  width: 12px;
+  height: 22px;
+  background: #db7093;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#notice .title p {
+  font-size: 11px;
+  color: #888;
+  position: relative;
+  padding-left: 20px;
+  margin-top: 3px;
+  line-height: 12px;
+}
+#notice .title p span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #db7093;
+  opacity: 0.7;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* 게시판 표 */
+#notice .board col:nth-child(1) {
+  width: 43px;
+}
+#notice .board col:nth-child(2) {
+  width: auto;
+}
+#notice .board col:nth-child(3) {
+  width: 54px;
+}
+#notice .board col:nth-child(4) {
+  width: 30px;
+}
+#notice .board col:nth-child(5) {
+  width: 56px;
+}
+#notice .board table {
+  font-size: 12px;
+  color: #555;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+#notice .board table thead {
+  background: linear-gradient(to bottom, #fff 0%, #f9f9f9 100%);
+}
+#notice .board table th {
+  font-size: 11px;
+  color: #333;
+  padding: 9px 0;
+  border-bottom: 1px solid #bbb;
+}
+#notice .board table td {
+  padding: 8px 0;
+  text-align: center;
+}
+#notice .board table tbody tr {
+  border-top: 1px solid #eee;
+}
+#notice .board table tr td:nth-child(2) {
+  text-align: left;
+  padding: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#notice .board table tbody tr:hover {
+  background: #f9f9f9;
+}
+#notice .board table tbody tr:hover td:nth-child(2) {
+  text-decoration: underline;
+}
+
+/* 목록 버튼 */
+#notice .btn {
+  font-size: 11px;
+  color: #333;
+  margin-top: 20px;
+}
+#notice .btn a {
+  display: inline-block;
+  padding: 0px 12px;
+  height: 27px;
+  line-height: 24px;
+  border: 1px solid #ccc;
+  background: #fcfcfc;
+  letter-spacing: -1px;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 #fff;
+  vertical-align: middle;
+}
+#notice .btn a:hover {
+  border-color: #aaa;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+#notice .btn i {
+  font-size: 14px;
+  vertical-align: middle;
+  color: #9791b9;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  padding-right: 5px;
+}
+
+/* 검색버튼 */
+#notice .btn .searchbox {
+  display: inline-block;
+  vertical-align: middle;
+}
+#notice .btn .searchbox fieldset {
+  display: inline-block;
+  padding: 0px 0px 0px 0px;
+  height: 27px;
+  line-height: 24px;
+  border: 1px solid #ccc;
+  background: #fcfcfc;
+  letter-spacing: -1px;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 #fff;
+  position: relative;
+}
+#notice .btn .searchbox fieldset:hover {
+  border-color: #aaa;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+#notice .btn .searchbox legend {
+  display: none;
+}
+#notice .btn .searchbox fieldset input {
+  border: none;
+  height: 25px;
+  width: 140px;
+  display: none;
+}
+#notice .btn .searchbox fieldset input:focus {
+  outline-color: #db7093;
+}
+#notice .btn .searchbox fieldset select {
+  border: none;
+  color: #333;
+  font-size: 11px;
+}
+#notice .btn .searchbox fieldset select:focus {
+  outline-color: #db7093;
+}
+#notice .btn .searchbox fieldset label {
+  margin-right: 12px;
+}
+
+#notice .btn .searchbox fieldset button {
+  border: none;
+  background: none;
+  margin-left: 12px;
+}
+
+/* example.html 페이지 */
+#example .chapter {
+  background: rgb(221, 221, 221);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 30px 0 10px;
+  text-align: center;
+}
+#example .chapter li {
+  /* li는 block 성격 -> 한줄에 하나씩 */
+  display: inline-block;
+  margin: 3px;
+}
+#example .chapter li a {
+  display: inline-block; /* inline 성격(a)은 높이, 넓이를 줄 수 없음 */
+  width: 58px;
+  height: 33px;
+  line-height: 33px;
+  color: white;
+  background: rgb(51, 51, 51);
+  font-size: 19px;
+  border-radius: 8px;
+  text-align: center;
+}
+#example .chapter li.active a {
+  color: yellow;
+}
+#example .subchapter ul {
+  background: #e7d3d3;
+  border-radius: 8px;
+  padding: 7px;
+  margin: 10px 0;
+  text-align: center;
+  display: none;
+}
+#example .subchapter ul.active {
+  display: block;
+}
+
+#example .subchapter ul li {
+  display: inline-block;
+  margin: 3px;
+}
+
+#example .subchapter ul li a {
+  display: inline-block;
+  width: 62px;
+  height: 24px;
+  line-height: 24px;
+  color: white;
+  background: #653333;
+  font-size: 13px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+#example .chapterContent {
+  background: rgb(246, 246, 180);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+#example .chapterContent .contentList .content .title {
+  background: #ffffe6;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+#example .chapterContent .contentList .content .title > div {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+#example .chapterContent .contentList .content .title > div h2 {
+  float: left;
+  font-size: 17px;
+}
+#example .chapterContent .contentList .content .title > div div {
+  float: right;
+}
+#example .chapterContent .contentList .content .title details {
+  font-size: 13.5px;
+}
+
+#example .chapterContent .contentList .content .buttons {
+  background: #ffffe6;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-size: 13.5px;
+}
+#example .chapterContent .contentList .content .buttons div:nth-child(1) {
+  float: left;
+}
+#example .chapterContent .contentList {
+  display: none;
+}
+#example .chapterContent .contentList.active {
+  display: block;
+}
+#example .chapterContent .contentList .content {
+  display: none;
+}
+#example .chapterContent .contentList.active .content.active {
+  display: block;
+}
+#example
+  .chapterContent
+  .contentList
+  .content
+  .buttons
+  div:nth-child(1)
+  button {
+  background: #e0e0a1;
+  border: 1px solid rgb(150, 150, 110);
+  border-radius: 8px;
+  padding: 7px 3px 3px 3px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+#example
+  .chapterContent
+  .contentList
+  .content
+  .buttons
+  div:nth-child(1)
+  button:hover {
+  background: #aaaa6e;
+}
+#example .chapterContent .contentList .content .buttons div:nth-child(2) {
+  float: right;
+}
+#example
+  .chapterContent
+  .contentList
+  .content
+  .buttons
+  div:nth-child(2)
+  button {
+  background: #e0e0e0;
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 8px;
+  padding: 7px 3px 3px 3px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+#example
+  .chapterContent
+  .contentList
+  .content
+  .buttons
+  div:nth-child(2)
+  button:hover {
+  background: #aaaaaa;
+}
+#example .chapterContent .contentList .content .code {
+  background-color: white;
+  width: 100%;
+  height: 300px;
+}
+#example .chapterContent details summary {
+  margin: 10px 0 0 0;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+#example .chapterContent details div {
+  font-size: 12px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  width: 100%;
+}
+#example .chapterContent details div span {
+  font-weight: bold;
+}
+
+/* login.html 페이지 */
+#login .loginbox {
+  max-width: 450px;
+  margin: 50px auto;
+}
+#login .loginbox fieldset {
+  border: none;
+}
+#login .loginbox legend {
+  display: none;
+}
+#login .loginbox input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
+  height: 36px;
+  outline: none;
+}
+#login .loginbox input:focus {
+  border-bottom-color: blue;
+}
+#login .loginbox form p {
+  position: relative;
+  margin: 40px 0;
+}
+#login .loginbox form label {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#login .loginbox form label.on {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  font-size: 12px;
+  color: blue;
+}
+#login .loginbox form .btn {
+  text-align: center;
+}
+#login .loginbox form .btn button {
+  width: 280px;
+  height: 44px;
+  background-color: #ededed;
+  border-radius: 50px;
+}
+#login .sns_login li a {
+  display: block;
+  height: 54px;
+  line-height: 54px;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+#login .sns_login {
+  margin-top: 30px;
+}
+#login .sns_login li:nth-child(1) a {
+  background: #ffea26 url(/images/ico_kakao.png) no-repeat 30px center/50px 50px;
+  color: #000;
+}
+#login .sns_login li:nth-child(2) a {
+  background: #00c300 url(/images/ico_naver.png) no-repeat 30px center/50px 50px;
+}
+#login .sns_login li:nth-child(3) a {
+  background: #405ea9 url(/images/ico_face.png) no-repeat 30px center/50px 50px;
+}
+#login .sns_login li:nth-child(4) a {
+  background: #888888 url(/images/ico_cellphone.png) no-repeat 30px center/50px
+    50px;
+}
+
+/* join.html 회원가입 페이지 */
+#join {
+  margin: 30px auto;
+}
+.appForm fieldset {
+  border: none;
+}
+.appForm legend {
+  display: none;
+}
+.appForm ::placeholder {
+  font-size: 14px;
+  color: #f00;
+}
+.appForm .info_pilsoo {
+  padding-bottom: 10px;
+  border-bottom: 2px solid #000;
+  font-size: 15px;
+  color: #f00;
+}
+.appForm .pilsoo_item::before {
+  content: "*";
+  padding-right: 8px;
+  position: relative;
+  top: 3px;
+  font-weight: bold;
+  font-size: 17px;
+  color: #f00;
+}
+.appForm .nopilsoo {
+  text-indent: 0.8em;
+  /* padding-left: 12px; */
+}
+.appForm .app_list {
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+.appForm .app_list li {
+  padding: 8px 0;
+}
+.appForm .app_list li .tit_lbl {
+  float: left;
+  width: 150px;
+  line-height: 42px;
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: -2px;
+}
+.appForm .app_list li .app_content {
+  float: right;
+  width: calc(100% - 150px);
+}
+.appForm input[type="text"],
+.appForm input[type="password"],
+.appForm input[type="date"] {
+  /* 인풋 타입이 text거나, password거나, date인 경우 */
+  height: 45px;
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 0 10px;
+}
+.appForm input[type="text"],
+.appForm input[type="password"],
+.appForm input[type="date"] {
+  transition: all 0.5s;
+}
+.appForm input[type="text"]:hover,
+.appForm input[type="password"]:hover,
+.appForm input[type="date"]:hover {
+  background: pink;
+  border-color: red;
+}
+.appForm input.w160 {
+  width: 160px;
+}
+
+.appForm #email_domain {
+  background-color: #f2f2f2;
+}
+.appForm select {
+  width: 160px;
+  height: 45px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  appearance: none; /* 셀렉트상자 끝에 기본으로 붙는 화살표 없앨때 사용 */
+  background: url(../images/ico_selectArr.png) no-repeat right center;
+  /* background-color: transparent; [tranceparent = 투명한 */
+}
+
+/* 중복체크 버튼 */
+.appForm .idcheck {
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 10px;
+  background: #aaa;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #fff;
+}
+
+/* 비밀번호 */
+.appForm #pwdarea {
+  position: relative;
+}
+.appForm #pwdarea .pwdhint {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  padding: 15px 0 15px 10px;
+  width: 100%;
+  font-size: 14px;
+  color: #f00;
+  background: lime;
+  transition: 0.3s;
+}
+.appForm #pwdarea:hover .pwdhint {
+  padding: 0 0 0 10px;
+  color: blue;
+  top: -1em;
+}
+/* 성별, 관심분야 */
+.appForm .radio_area,
+.appForm .checkbox_area {
+  height: 45px;
+}
+.appForm .css-radio,
+.appForm .css-checkbox {
+  display: none;
+}
+.appForm .css-radio + label,
+.appForm .css-checkbox + label {
+  margin-right: 15px;
+  padding-left: 20px;
+  margin-top: 13px;
+  display: inline-block;
+}
+.appForm .css-radio + label {
+  background: url(../images/radio.png) no-repeat 0 0;
+  height: 15px;
+  line-height: 15px;
+  border: #000;
+}
+.appForm .css-radio:checked + label {
+  background-position: 0 -50px;
+}
+.appForm .css-checkbox + label {
+  background: url(../images/checkbox.png) no-repeat 0 0/15px auto;
+  height: 15px;
+  line-height: 15px;
+}
+.appForm .css-checkbox:checked + label {
+  background-position: 0 -15px;
+}
+
+/* 문의내용 */
+.appForm #content_lbl {
+  width: 100%;
+  height: 245px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  resize: unset; /* 상자 크기 멋대로 못바꾸게 고정 */
+}
+
+/* 버튼(등록/취소) */
+.appForm .btn_line {
+  text-align: center;
+  margin: 20px 0;
+}
+.appForm .btn_line button {
+  background: #384d75;
+  font-size: 20px;
+  color: #fff;
+  width: 125px;
+  height: 50px;
+  border-radius: 5px;
+}

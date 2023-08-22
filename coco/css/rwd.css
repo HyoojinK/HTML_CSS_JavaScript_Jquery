@@ -1,0 +1,153 @@
+@media screen and (max-width: 1024px) {
+  * {
+    word-break: keep-all;
+  }
+  #section .article1 .slide-group .slide {
+    height: 400px;
+  }
+  #section .article2 ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  #section .article2 ul li {
+    display: flex;
+    width: 49%;
+    height: 300px;
+    margin-bottom: 10px;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  #section .article2 ul li:hover > div {
+    bottom: 50px;
+  }
+  #section .article5 {
+    margin-top: 50px;
+    padding: 30px 0;
+    border-top: 1px solid #ddd;
+  }
+  #section .article5 .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  #section .article5 .row > div {
+    width: 33.333%;
+    padding: 0 5px;
+  }
+  #section .article5 .row > div.cs_board .tabmenu {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+  }
+  #section .article5 .row > div.cs_board .tabmenu li {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    border-bottom: none;
+    cursor: pointer;
+  }
+  #section .article5 .row > div.cs_board .tabmenu li.active {
+    background: #ddd;
+    color: orangered;
+  }
+  #section .article5 .row > div.cs_board .contents {
+    position: relative;
+  }
+  #section .article5 .row > div.cs_board .contents > div {
+    display: none;
+  }
+  #section .article5 .row > div.cs_board .contents > div table {
+    font-size: 12px;
+  }
+  #section .article5 .row > div.cs_board .contents > div table col:nth-child(1) {
+    width: auto;
+  }
+  #section .article5 .row > div.cs_board .contents > div table col:nth-child(2) {
+    width: 0px;
+  }
+  #section .article5 .row > div.cs_board .contents > div table td {
+    border-bottom: 1px solid #ddd;
+    padding: 9px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #section .article5 .row > div.cs_board .contents > div .more {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 10px;
+    background: #ddd;
+    margin-top: 5px;
+    border-radius: 3px;
+  }
+  #section .article5 .row > div.cs_board .contents > div.active {
+    display: block;
+  }
+  #section .article5 .row > div.cs_center {
+    padding: 0 30px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+  #section .article5 .row > div.cs_center h4 {
+    color: #000;
+    font-size: 17px;
+    line-height: 28px;
+    padding-bottom: 12px;
+    font-weight: 500;
+  }
+  #section .article5 .row > div.cs_center li {
+    font-size: 12px;
+    line-height: 20px;
+    padding-left: 10px;
+    margin: 2px 0;
+    text-indent: 0px;
+    display: list-item;
+  }
+  #section .article5 .row > div.cs_center li.tel_num {
+    color: #ed5c20;
+    font-size: 23px;
+    line-height: 36px;
+    font-weight: 700;
+    padding-bottom: 10px;
+    padding-left: 0px;
+  }
+  #section .article5 .row > div.cs_center li.tel_num i {
+    transform: rotateY(180deg) scale(0.7);
+  }
+  #section .article5 .row > div.cs_center li:nth-child(2)::before {
+    content: "- ";
+  }
+  #section .article5 .row > div.cs_center li:nth-child(3)::before {
+    content: "- ";
+  }
+  #section .article5 .row > div.cs_center .cs-box .cs-btn a {
+    font-size: 10px;
+    width: 46%;
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 1%;
+    margin-top: 20px;
+  }
+  #section .article5 .row > div.cs_center .cs-box .cs-btn a:nth-child(1) {
+    background: #787878;
+  }
+  #section .article5 .row > div.cs_center .cs-box .cs-btn a:nth-child(2) {
+    background: #001f60;
+  }
+  #section .article5 .row > div.cs_movie .tubewrap {
+    width: 100%;
+    padding-top: 56.25%;
+    position: relative;
+  }
+  #section .article5 .row > div.cs_movie .tubewrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}/*# sourceMappingURL=rwd.css.map */

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #content {
+        max-width: 500px;
+        margin: 50px auto;
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content"></div>
+
+    <script>
+      //   let student = ["김은영", "홍길동", "장나라"];
+      //   let kor = [90, 80, 70];
+      //   let eng = [60, 40, 100];
+      //   let math = [50, 80, 90];
+
+      // let student1 = {
+      //   irum: "김은영",
+      //   kor: 90,
+      //   eng: 60,
+      //   math: 50,
+      //   avg: function () {
+      //     return parseInt((this.kor + this.eng + this.math) / 3);
+      //   },
+      // };
+      // let student2 = {
+      //   irum: "홍길동",
+      //   kor: 80,
+      //   eng: 40,
+      //   math: 80,
+      //   avg: function () {
+      //     return parseInt((this.kor + this.eng + this.math) / 3);
+      //   },
+      // };
+      // let student3 = {
+      //   irum: "장나라",
+      //   kor: 70,
+      //   eng: 100,
+      //   math: 90,
+      //   avg: function () {
+      //     return parseInt((this.kor + this.eng + this.math) / 3);
+      //   },
+      // };
+      // document.write(student1.irum + " ");
+      // document.write(student1.kor + " ");
+      // document.write(student1.eng + " ");
+      // document.write(student1.math + " ");
+      // document.write(student1.avg() + "<br>");
+
+      let students = [
+        {
+          irum: "김은영",
+          kor: 90,
+          eng: 60,
+          math: 50,
+          avg: function () {
+            return (this.kor + this.eng + this.math) / 3;
+          },
+        },
+        {
+          irum: "홍길동",
+          kor: 80,
+          eng: 40,
+          math: 80,
+          avg: function () {
+            return (this.kor + this.eng + this.math) / 3;
+          },
+        },
+        {
+          irum: "장나라",
+          kor: 70,
+          eng: 100,
+          math: 90,
+          avg: function () {
+            return (this.kor + this.eng + this.math) / 3;
+          },
+        },
+      ];
+      let content = document.querySelector("#content");
+      let table = "<table border='1'>";
+      table += "<tr>";
+      table += "<th>이름</th>";
+      table += "<th>국어</th>";
+      table += "<th>영어</th>";
+      table += "<th>수학</th>";
+      table += "<th>평균</th>";
+      table += "</tr>";
+      for (let i in students) {
+        table += "<tr>";
+        table += `<td>${students[i].irum}</td>`;
+        table += `<td>${students[i].kor}</td>`;
+        table += `<td>${students[i].eng}</td>`;
+        table += `<td>${students[i].math}</td>`;
+        table += `<td>${parseInt(students[i].avg())}</td>`;
+        table += "</tr>";
+      }
+      table += "</table>";
+      content.innerHTML = table;
+      //   1. 리터럴 객체 정의
+      //    let 객체명 = {속성명(키) : 값1, 속성2 : 값2, 메서드(기능, 할일) : function(){실행문; return}}
+      //   2. 객체 생성자로 정의
+      //    let 객체명 = new Object()
+      //    객체명.속성명1 = 값1
+      //    객체명.속성명2 = 값2
+      //    객체명.메서드() = function(){실행문; return}
+      //   객체명.속성1 === 객체명["속성1"] === 객체명[변수명]
+      //   객체명.메서드()
+    </script>
+  </body>
+</html>

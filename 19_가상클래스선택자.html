@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        color: inherit;
+      }
+      h3,
+      li {
+        color: brown;
+      }
+      div > div > strong {
+        background-color: yellow;
+      }
+      ul strong {
+        color: dodgerblue;
+      }
+      .warning {
+        color: red;
+      }
+      body.main {
+        background-color: aliceblue;
+      }
+      #list {
+        background: mistyrose;
+      }
+      #list span {
+        color: forestgreen;
+      }
+      h3::first-letter {
+        color: red;
+      }
+      p::first-line {
+        color: red;
+      }
+      #list li:hover {
+        color: yellowgreen;
+      }
+      #list li:hover span {
+        color: yellowgreen;
+      }
+      #list li:hover strong {
+        color: yellowgreen;
+      }
+      h3:hover {
+        background-color: red;
+      }
+      #menu li {
+        color: green;
+        text-decoration: none;
+      }
+      #menu li:hover {
+        color: red;
+        text-decoration: underline;
+      }
+      /*
+      #menu li:first-child {color: blue;}
+      #menu li:nth-child(2) a {color: orange;}
+      #menu li:nth-child(3) a {color: gray;}
+      #menu li:last-child a {color: violet;} */
+
+      /* 
+        first-child, last-child, nth-child(n) : 이름이 같은 형제관계에서만 사용함
+       */
+      #menu li:nth-child(odd) a {
+        color: orange;
+      }
+      #menu li:nth-child(even) a {
+        color: gray;
+      }
+    </style>
+  </head>
+  <body class="main">
+    <h3>Web programming</h3>
+    <hr />
+    <div>
+      <div>2학기 <strong>학습내용</strong>입니다.</div>
+      <ul id="list">
+        <li><span>HTML5</span></li>
+        <li><strong>CSS</strong></li>
+        <li>JAVASCRIPT</li>
+      </ul>
+      <div class="warning">60점 이하는 F</div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
+        doloribus modi perspiciatis, beatae animi autem magni nihil ullam
+        tenetur nesciunt ratione! Laborum perferendis maxime pariatur accusamus
+        sit nostrum quod ipsa!Lorem Quasi sint suscipit in ullam hic harum
+        dolorum. Ab fugit nam porro atque qui fugiat totam aut. Delectus
+        voluptatem architecto doloribus at, officiis ab dolorem ipsa odit quod
+        quidem placeat. Architecto quis quasi fugiat totam. Quos quisquam atque
+        distinctio error. Quod natus cupiditate tenetur dicta, nisi, corporis
+        dolorem perspiciatis rerum dolor libero illo, laboriosam dolorum et
+        iure? Laudantium, sunt veniam?
+      </p>
+      <ul id="menu">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
+
+<!-- 
+    a:link - 아무것도 하지 않았을때의 스타일        {color:blue; text-decoration:underline;}
+    a:visited - 이동한 후에 돌아왔을때 스타일       {color:violet}
+    a:focus - 탭키를 눌러서 포커스 됐을때 스타일    {color:blue; text-decoration:underline; outline:border;}
+    a:hover - 마우스오버했을 때의 스타일            {color:blue; text-decoration:underline}
+    a:active - 클릭하는 순간의 스타일               {color:red}
+ -->

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제이쿼리이벤트연결</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <div><a href="http://www.naver.com">네이버</a></div>
+    <form action="#" method="post" name="join">
+      <input type="text" name="irum" />
+      <button type="submit">전송</button>
+    </form>
+
+    <div id="parent" style="background: red; padding: 20px">
+      <div id="child" style="background: pink; width: 50px; height: 50px">
+        자식
+      </div>
+    </div>
+    <!-- 
+        target : 이벤트를 발생시킨 객체를 반환
+        type : 이벤트의 이름을 반환
+        clientX : 이벤트가 발생한 X 좌표값 반환(브라우저 기준)
+        clientY : 이벤트가 발생한 Y 좌표값 반환(브라우저 기준)
+        screenX : 이벤트가 발생한 X 좌표값 반환(모니터 기준)
+        screenY : 이벤트가 발생한 Y 좌표값 반환(모니터 기준)
+        button : 마우스 왼쪽(0), 가운데(1), 오른쪽(2) 버튼값 반환
+        preventDefalut() : 기본 이벤트를 막아줌
+        stopPropogation() : 이벤트 전파를 막아줌
+     -->
+    <script>
+      // preventDefalut() 클릭하면 발생하는 기본이벤트를 막아줌(function에 매개변수 넣어줘야 함)
+      $("div a").on("click", function (event) {
+        event.preventDefault();
+        console.log(event);
+        // return false;
+      });
+
+      $("form").on("submit", function (e) {
+        //button의 타입이 submit, return일 경우에는 form을 지목해야 함
+        let irum = $("input").val();
+        if (!irum) {
+          alert("이름을 입력해주세요");
+          return false;
+        }
+        // e.preventDefault();
+        return false;
+      });
+
+      $("#parent").on("click", function () {
+        $(this).css({
+          background: "blue",
+        });
+      });
+
+      //   $("#parent")
+      //     .on("mouseover", function () {
+      //       $(this).css({
+      //         background: "green",
+      //       });
+      //     })
+      //     .on("mouseout", function () {
+      //       $(this).css({
+      //         background: "red",
+      //       });
+      //     });
+      $("#parent").hover(
+        function () {
+          $(this).css({
+            background: "green",
+          });
+        },
+        function () {
+          $(this).css({
+            background: "red",
+          });
+        }
+      );
+
+      $("#child").on("click", function (e) {
+        e.stopPropagation();
+        $(this).css({
+          background: "orange",
+        });
+      });
+    </script>
+  </body>
+</html>

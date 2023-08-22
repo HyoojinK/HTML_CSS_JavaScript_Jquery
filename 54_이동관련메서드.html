@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이동관련메서드</title>
+    <style>
+      .gallery {
+        max-width: 300px;
+        margin: 50px auto;
+        height: 224px;
+        position: relative;
+        overflow: hidden;
+      }
+      .gallery ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        width: 400%;
+        display: flex;
+        position: absolute;
+        left: 00px;
+        top: 0;
+      }
+      .gallery ul li {
+        /* border: 2px solid #000; */
+        flex-shrink: 0;
+        /* flex-shrink : 축소하지 않고 있는 그대로 */
+        width: 25%;
+      }
+      .gallery ul li img {
+        width: 100%;
+        vertical-align: middle;
+      }
+      .gallery .btn {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <!-- 
+        $('선택자').prependTo('기준요소') : 선택자를 기준요소의 첫번째 자식으로 이동
+        $('선택자').appendTo('기준요소') : 선택자를 기준요소의 마지막 자식으로 이동
+        $('선택자').insertBefore('기준요소') : 선택자를 기준요소의 이전형제로 이동
+        $('선택자').insertAfter('기준요소') : 선택자를 기준요소의 다음형제로 이동
+     -->
+
+    <ul id="depth1">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+    <button type="button">prependTo</button>
+    <button type="button">appendTo</button>
+    <button type="button">insertBefore</button>
+    <button type="button">insertAfter</button>
+
+    <div class="gallery">
+      <ul>
+        <li class="on">
+          <a href="javascript:;"
+            ><img src="./sample/9장/media/Desert.png" alt="사막"
+          /></a>
+          <!-- href="javascript:;" 이동할 목적이 아닐때-->
+        </li>
+        <li>
+          <a href="javascript:;"
+            ><img src="./sample/9장/media/Hydrangeas.png" alt="수국"
+          /></a>
+        </li>
+        <li>
+          <a href="javascript:;"
+            ><img src="./sample/9장/media/Jellyfish.png" alt="해파리"
+          /></a>
+        </li>
+        <li>
+          <a href="javascript:;"
+            ><img src="./sample/9장/media/Koala.png" alt="코알라"
+          /></a>
+        </li>
+      </ul>
+      <div class="btn">
+        <button type="button">이전</button>
+        <button type="button">다음</button>
+      </div>
+    </div>
+
+    <script>
+      // 첫번째 버튼 누르면 #depth1의 첫번째 자식으로 마지막 li가 이동함
+      $("button")
+        .eq(0)
+        .on("click", function () {
+          $("ul li:last-child").prependTo("#depth1");
+        });
+      // 두번째 버튼 누르면 #depth1의 마지막 자식으로 첫번째 li가 이동함
+      $("button")
+        .eq(1)
+        .on("click", function () {
+          $("ul li:first-child").appendTo("#depth1");
+        });
+      // 세번째 버튼 누르면 #depth1의 두번째 자식 이전으로 마지막 li가 이동함
+      $("button")
+        .eq(2)
+        .on("click", function () {
+          $("ul li:last-child").insertBefore("#depth1 li:nth-child(2)");
+        });
+      // 네번째 버튼 누르면 #depth1의 세번째 자식 다음으로 첫번째 li가 이동함
+      $("button")
+        .eq(3)
+        .on("click", function () {
+          $("ul li:first-child").insertAfter("#depth1 li:nth-child(3)");
+        });
+
+      //   $(".btn button")
+      //     .eq(0)
+      //     .on("click", function () {
+      //       $(".gallery ul li:last-child").prependTo(".gallery ul");
+      //     });
+      //   $(".btn button")
+      //     .eq(1)
+      //     .on("click", function () {
+      //       $(".gallery ul li:first-child").appendTo(".gallery ul");
+      //     });
+
+      let count = 0;
+
+      $(".btn button")
+        .eq(0)
+        .on("click", function () {
+          if (count > 0) {
+            $(".gallery ul").animate(
+              {
+                left: "+=100%",
+              },
+              300
+            );
+            count--;
+          }
+        });
+
+      $(".btn button")
+        .eq(1)
+        .on("click", function () {
+          if (count < 3) {
+            $(".gallery ul").animate(
+              {
+                left: "-=100%",
+              },
+              300
+            );
+            count++;
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <bodytbody>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>표만들기</title>
+  </bodytbody>
+  <body>
+    <h3>기본 구조를 가진 표</h3>
+    <!-- "<table>    표 만들때 사용" -->
+    <table border="1">
+      <!-- border= "1"    표 테두리 두께-->
+      <caption>
+        <!-- <caption>  표의 제목(없으면 안써도 됨) -->
+        1학기 성적
+      </caption>
+      <thead>
+        <tr>
+          <!-- <tr>   행번호,     <td>   n행 열번호       <th>   분류(진하게)-->
+          <th scope="col">이름</th>
+          <th scope="col">HTML</th>
+          <th scope="col">CSS</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td>합</td>
+          <td>225</td>
+          <td>230</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td>황기태</td>
+          <td>80</td>
+          <td>70</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>이재문</td>
+          <td>95</td>
+          <td>99</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>이병은</td>
+          <td>40</td>
+          <td>61</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>표에 이미지 삽입</h3>
+    <hr />
+    <table>
+      <caption>
+        좋아하는 과일
+      </caption>
+      <tr>
+        <td><img src="./sample/2장/media/apple.png" alt="사과" /></td>
+        <td><img src="./sample/2장/media/banana.png" alt="바나나" /></td>
+        <td><img src="./sample/2장/media/mango.png" alt="망고" /></td>
+      </tr>
+    </table>
+
+    <h3>비정형표 만들기</h3>
+    <table border="1" width="500" height="300">
+      <tr>
+        <td rowspan="3">A</td>
+        <td colspan="2">B</td>
+      </tr>
+      <tr>
+        <td rowspan="2">C</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td>E</td>
+      </tr>
+    </table>
+    <br />
+    <br />
+    <!-- 아래의 비정방형 표는 td의 width를 지정해야함 -->
+    <h3>비정형표 만들기-2</h3>
+    <table border="1" width="500" height="300">
+      <tr>
+        <td width="25%">A</td>
+        <td colspan="2" rowspan="2" width="50%">B</td>
+        <td width="25%">C</td>
+      </tr>
+      <tr>
+        <td width="25%">D</td>
+        <td rowspan="2" width="25%">E</td>
+      </tr>
+      <tr>
+        <td colspan="2" width="25%">F</td>
+        <td width="25%">G</td>
+      </tr>
+    </table>
+  </body>
+</html>

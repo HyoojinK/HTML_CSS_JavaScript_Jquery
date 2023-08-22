@@ -1,0 +1,45 @@
+body {
+  background-color: navajowhite;
+}
+hr {
+  border: 5px solid pink;
+}
+h3 {
+  color: powderblue;
+}
+/* span 태그의 배경색은 red, 글자색은 white, 테두리는 3px, 실선, 검정색으로 변경하세요 */
+span {
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  border: 3px solid black;
+}
+p.first {
+  color: orangered;
+}
+p.second {
+  background-color: blue;
+  color: yellow;
+}
+
+#list1 .first {
+  color: darkblue;
+}
+
+#list1.depth1 {
+  color: aqua;
+}
+
+#list1 .third {
+  color: yellow;
+}
+
+ul {
+  color: brown;
+}
+* {
+  color: 3px purple;
+}
+#list2 .second {
+  color: white;
+}
