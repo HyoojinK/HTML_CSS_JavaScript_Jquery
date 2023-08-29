@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // open("새 창에 들어올 문서의 url(미리 만들어놓기)","창 제목", "창크기(width, height),창위치(top,left,right,bottom)"); // 팝업창 띄우기
+      alert("경고창 띄우기");
+      prompt("첫번째 인수(제목)", "두번째 인수(초기값)");
+      confirm("확인질문(정말로 삭제하시겠습니까?)");
+      let answer = confirm("확인질문");
+      console.log(answer); //확인-true  / 취소-false
+      if (answer) {
+        // 질문에 긍정적인 프로그램 작성
+      } else {
+        // 취소를 선택했기 때문에 아무것도 안함
+      }
+      window.open(
+        "./popup.html",
+        "",
+        "width=400, height=400, top=100, left=200"
+      );
+    </script>
+  </body>
+</html>

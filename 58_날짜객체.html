@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div><span></span><span></span><span></span></div>
+
+    <script>
+      let now = new Date();
+      document.write(now + "<br>");
+      document.write(now.getFullYear() + "<br>"); // 연도만 추출하고싶다(getFullYear)
+      document.write(now.getMonth() + 1 + "<br>"); // 월 0값이 1월이므로 1 더해줘야함
+      document.write(now.getDate() + "<br>"); // 일
+      document.write(now.getDay() + "<br>"); // 요일 (일요일0부터 시작)
+      switch (now.getDay()) {
+        case 1:
+          document.write("월요일");
+          break;
+        case 2:
+          document.write("화요일");
+          break;
+        case 3:
+          document.write("수요일");
+          break;
+        case 4:
+          document.write("목요일");
+          break;
+        case 5:
+          document.write("금요일");
+          break;
+        case 6:
+          document.write("토요일");
+          break;
+        case 0:
+          document.write("일요일");
+          break;
+      }
+
+      function autoClock() {
+        let now = new Date();
+        let hour = now.getHours();
+        let min = now.getMinutes();
+        let sec = now.getSeconds();
+        if (hour >= 0 && hour <= 9) {
+          hour = "0" + hour;
+        }
+        if (min >= 0 && min <= 9) {
+          min = "0" + min;
+        }
+        if (sec >= 0 && sec <= 9) {
+          sec = "0" + sec;
+        }
+        let span = document.querySelectorAll("span");
+        span[0].textContent = hour + "시 ";
+        span[1].textContent = min + "분 ";
+        span[2].textContent = sec + "초 ";
+      }
+      autoClock();
+      //   setInterval(함수, 시간(m/s)) : 시간간격으로 반복해서 함수를 호출;
+      // 함수 호출시()fmf qnxdlwl akfrjt
+      let timer = setInterval(autoClock, 1000);
+      let div = document.querySelector("div");
+      div.addEventListener("mouseover", function () {
+        clearInterval(timer);
+      });
+      div.addEventListener("mouseout", function () {
+        timer = setInterval(autoClock, 1000);
+      });
+
+      // setTimeout(함수, 시간): 시간후에 딱 한번 함수를 호출함
+      setTimeout(function () {
+        document.write("김효진");
+      }, 2000);
+    </script>
+  </body>
+</html>

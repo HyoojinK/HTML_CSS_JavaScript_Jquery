@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Document</title>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">나는 박스</div>
+    <script>
+      let width = $("#box").width(); //넓이(padding과 border는 제외된 넓이)
+      let height = $("#box").height();
+      document.write("넓이 : " + width + ", 높이 : " + height + "<br>");
+
+      let innerwidth = $("#box").innerWidth(); //넓이(padding  포함된 넓이)
+      let innerheight = $("#box").innerHeight();
+      document.write(
+        "박스넓이 : " + innerwidth + ", 창높이 : " + innerheight + "<br>"
+      );
+
+      let outerwidth = $("#box").outerWidth(); //넓이(border  포함된 넓이)
+      let outerheight = $("#box").outerHeight();
+      document.write(
+        "박스넓이 : " + outerwidth + ", 창높이 : " + outerheight + "<br>"
+      );
+
+      let ww = $(window).width();
+      let wh = $(window).height();
+      document.write("창넓이 : " + ww + ", 창높이 : " + wh + "<br>");
+      $(window).on("resize", function () {
+        let ww = $(this).width();
+        let wh = $(this).height();
+        console.log("창넓이 : " + ww + ", 창높이 : " + wh + "<br>");
+      });
+    </script>
+  </body>
+</html>

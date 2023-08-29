@@ -50,10 +50,11 @@
         </form>
         <form action="#" method="post">
           <ul class="sns_login">
-            <li><a href="#none">카카오톡 로그인</a></li>
-            <li><a href="#none">네이버 로그인</a></li>
-            <li><a href="#none">페이스북 로그인</a></li>
-            <li><a href="#none">이메일주소 로그인</a></li>
+            <li>
+              <a id="btn-kakao-login" href="kakao/login">카카오톡 로그인</a>
+            </li>
+            <!-- <li><a href="#none">네이버 로그인</a></li> -->
+            <!-- <li><a href="#none">구글 계정 로그인</a></li> -->
           </ul>
         </form>
       </div>
@@ -61,5 +62,48 @@
     <div class="footer"></div>
 
     <script src="./js/common.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+      // 로그인 정보 저장
+      $("form").on("submit", function (e) {
+        e.preventDefault();
+        let myid = $("#userid").val();
+        let mypw = $("#userpw").val();
+        if (myid && mypw) {
+          sessionStorage.setItem("userid", myid); //sessionStorage는 문자만 저장할 수 있음!
+          sessionStorage.setItem("userpw", mypw); //세션스토리지에 아이디랑 비밀번호 저장
+          sessionStorage.setItem("type", "webprogramming_login_page");
+
+          location.href = "./index.html";
+        }
+      });
+
+      // 카카오 로그인
+      $("#btn-kakao-login").on("click", function (e) {
+        e.preventDefault();
+        Kakao.init("98bb2e2bd1adba4b911f293825cf0f3b");
+        Kakao.Auth.login({
+          success: function (auth) {
+            Kakao.API.request({
+              url: "/v2/user/me",
+              success: function (response) {
+                var account = response.kakao_account;
+                // console.log(account);
+                sessionStorage.setItem("userid", account.email);
+                sessionStorage.setItem("userpw", account.nickname);
+                sessionStorage.setItem("type", "kakao");
+                location.href = "./index.html";
+              },
+              fail: function (error) {
+                console.log(error);
+              },
+            });
+          },
+          fail: function (error) {
+            console.log(error);
+          },
+        });
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Math.random() : 난수발생(0부터 1보다 작은 수만 출력)
+      // Math.floor() : 소숫점이하 버림
+      // Math.ceil() : 소숫점이하 올림
+      // Math.round() : 소숫점 이하 1의 자리에서 반올림
+      // (Math.round(숫자*100))/100 : 소숫점이하 둘째자리에서 반올림
+      // Math.max(3,9,10) : 최대값 10이 구해짐
+      // Math.min(3,9,10) : 최소값 3이 구해짐
+      // Math.max.apply(null, 배열명) : 배열에서 최대값이 구해짐
+      // Math.min.apply(null, 배열명) : 배열에서 최소값이 구해짐
+      let n = 10.55555;
+      console.log(Math.round(n * 100) / 100); // 10.56
+      function rand() {
+        // var num = Math.floor(Math.random()*6)    // 0~5까지의 난수 발생
+        var num = Math.floor(Math.random() * 5) + 1; // 1~5까지의 난수 발생
+        console.log(num);
+      }
+    </script>
+  </body>
+</html>

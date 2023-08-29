@@ -20,6 +20,7 @@ a {
 }
 img {
   max-width: 100%;
+  vertical-align: middle;
 }
 table {
   border-collapse: collapse; /* border-collase -> 표 이중선 없애는 코드 */
@@ -788,18 +789,21 @@ h1 {
   margin-top: 30px;
 }
 #login .sns_login li:nth-child(1) a {
-  background: #ffea26 url(/images/ico_kakao.png) no-repeat 30px center/50px 50px;
+  background: #ffea26 url(../images/ico_kakao.png) no-repeat 30px center/50px
+    50px;
   color: #000;
 }
 #login .sns_login li:nth-child(2) a {
-  background: #00c300 url(/images/ico_naver.png) no-repeat 30px center/50px 50px;
+  background: #00c300 url(../images/ico_naver.png) no-repeat 30px center/50px
+    50px;
 }
 #login .sns_login li:nth-child(3) a {
-  background: #405ea9 url(/images/ico_face.png) no-repeat 30px center/50px 50px;
+  background: #405ea9 url(../images/ico_face.png) no-repeat 30px center/50px
+    50px;
 }
 #login .sns_login li:nth-child(4) a {
-  background: #888888 url(/images/ico_cellphone.png) no-repeat 30px center/50px
-    50px;
+  background: #888888 url(../images/ico_cellphone.png) no-repeat 30px
+    center/50px 50px;
 }
 
 /* join.html 회원가입 페이지 */

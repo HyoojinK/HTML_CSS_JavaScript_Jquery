@@ -16,9 +16,219 @@
   <body>
     <div class="header"></div>
 
-    <section class="cartBox row">장바구니</section>
+    <style>
+      .cartBox {
+        padding: 100px 0;
+      }
+      .cartBox .cartInfo {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .cartBox .cartInfo {
+        margin: 20px 0;
+      }
+      .cartBox col:nth-child(1) {
+        width: 150px;
+      }
+      .cartBox col:nth-child(2) {
+        width: auto;
+      }
+      .cartBox col:nth-child(3) {
+        width: 100px;
+      }
+      .cartBox col:nth-child(4) {
+        width: 100px;
+      }
+      .cartBox col:nth-child(5) {
+        width: 80px;
+      }
+      .cartBox table thead th {
+        padding: 15px 0;
+      }
+      .cartBox table tbody td {
+        padding: 5px 0;
+        text-align: center;
+      }
+      .cartBox table tfoot td {
+        padding: 10px 0;
+        text-align: center;
+        font-size: 30px;
+      }
+      .cartBox table tbody button {
+        padding: 5px 10px;
+        background: #555;
+        color: #fff;
+      }
+      .cartBox table tbody input {
+        display: block;
+        width: 30px;
+        text-align: center;
+        height: 30px;
+        margin: 3px auto;
+      }
+
+      .cartBox .order {
+        text-align: center;
+        margin: 20px 0;
+      }
+      .cartBox .order button {
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-size: 20px;
+        background: #555;
+        color: #fff;
+      }
+    </style>
+    <section class="cartBox row">
+      <div class="cartInfo">
+        <h2>장바구니</h2>
+        <p></p>
+      </div>
+    </section>
 
     <div class="footer"></div>
+    <script>
+      let cartList = JSON.parse(localStorage.getItem("allItem"));
+      function listing() {
+        if (cartList.length) {
+          $(".cartInfo p").text("");
+          let total = 0;
+          let trList = `<table border="1">
+                          <colgroup>
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                            <col />
+                          </colgroup>
+                        <thead>
+                          <tr>
+                            <th>이미지</th>
+                            <th>상품정보</th>
+                            <th>수량</th>
+                            <th>금액</th>
+                            <th>선택</th>
+                          </tr>
+                        </thead>`;
+          trList += `<tbody>`;
+          cartList.forEach((value, index) => {
+            trList += `<tr>`;
+            trList += `<td><img src="./img/${value.photo}" alt="${value.name}" /></td>`;
+            trList += `<td>${value.name} <br> <span class="price">${value.price}</span></td>`;
+            trList += `<td>
+                        <button type="button" class="qty__plus">+</button>
+                        <input type="text" value="${value.quantity}" autocomplete="off" class="qty__input">
+                        <button type="button" class="qty__minus">-</button>
+                     </td>`;
+            trList += `<td class="myTotal">${
+              value.quantity * value.price
+            }</td>`;
+            trList += `<td><button type="button" class="remove">삭제</button></td>`;
+            trList += `</tr>`;
+            total = total + value.quantity * value.price;
+          });
+          trList += `</tbody>`;
+          trList += `<tfoot>`;
+          trList += `<tr>`;
+          trList += `<td colspan="5">합계 : <span>${total}</span></td>`;
+          trList += `</tr>`;
+          trList += `</tfoot>`;
+          trList += `</table>`;
+          trList += `<div class="order"><button type="button">주문하기</button></div>`;
+
+          $(".cartBox table").remove();
+          $(" .cartBox .order").remove();
+          $(".cartBox").append(trList);
+        } else {
+          $(" .cartBox table").remove();
+          $(" .cartBox .order").remove();
+          $(".cartInfo p").text("장바구니가 비어있습니다.");
+        }
+      }
+      listing();
+
+      // + 누르면
+      $("body").on("click", ".qty__plus", function () {
+        // $(".qty__input").val() = input 상자에 입력된 값 문자로 추출(parseInt로 묶으면 문자는 무시하고 숫자로 변환해줌)
+        let quantity = $(this).next().val(); // 지역변수quantity에 this(클릭한qty__plus)의 next(다음요소의 값(input))을 추출해서 대입
+        let myprice = parseInt($(this).parent().prev().find(".price").text());
+        let total = 0;
+        // console.log(myprice);
+        if (quantity) {
+          quantity = parseInt(quantity);
+          $(this).next().val(++quantity); // select, input에 값을 넣어줄때 val(값)(val() 빈칸일 때는 현재값을 추출해줌)
+          total = quantity * myprice;
+        } else {
+          quantity = 1;
+          $(this).next().val(quantity);
+          total = quantity * myprice;
+        }
+        $(this).parent().next().text(total);
+        mytotal();
+      });
+
+      // - 누르면
+      $("body").on("click", ".qty__minus", function () {
+        quantity = parseInt($(this).prev().val()); // prev = 이전요소 // 지역변수quantity에 this(클릭한qty__minus)의 prev(이전요소의 값(input))을 추출해서 대입
+        let myprice = parseInt($(this).parent().prev().find(".price").text());
+        if (quantity > 1) {
+          $(this).prev().val(--quantity);
+          total = quantity * myprice;
+        } else {
+          quantity = 1;
+          $(this).prev().val(quantity);
+          total = quantity * myprice;
+        }
+        $(this).parent().next().text(total);
+        mytotal();
+      });
+      // input 상자에 숫자를 직접 입력했을 때
+      $("body").on("keyup", ".qty__input", function () {
+        let quantity = $(this).val();
+        let myprice = parseInt($(this).parent().prev().find(".price").text());
+        let total = 0;
+        if (quantity) {
+          quantity = parseInt(quantity);
+          $(this).val(quantity);
+          total = quantity * myprice;
+          $(this).parent().next().text(total);
+          mytotal();
+        }
+      });
+      // // 한 제품 total 금액 구하는 함수
+      // function getTotal(qty, mpr) {
+      //   let total = qty * mpr;
+      //   return total;
+      // }
+
+      // 최종 금액 구하는 함수
+      function mytotal() {
+        let total = 0;
+        $("tbody .myTotal").each(function () {
+          total += parseInt($(this).text());
+        });
+        $("tfoot span").text(total);
+      }
+
+      $("body").on("click", "tbody .remove", function () {
+        let trnum = $(this).parents("tr").index();
+        console.log(trnum);
+        cartList.splice(trnum, 1);
+        localStorage.setItem("allItem", JSON.stringify(cartList));
+        listing();
+      });
+
+      $("body").on("click", ".order button", function () {
+        let myid = sessionStorage.getItem("userid");
+        if (!myid) {
+          alert("로그인 후 구매할 수 있습니다.");
+          location.href = "./login.html";
+        } else {
+          location.href = "./buy.html";
+          localStorage.clear();
+        }
+      });
+    </script>
     <script src="./js/common.js"></script>
   </body>
 </html>

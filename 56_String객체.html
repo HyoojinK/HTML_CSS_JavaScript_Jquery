@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let str = "Javascript";
+
+      // charAt(n): n번째 글자 반환(시작번호는 0번부터)
+      document.write(str.charAt(4) + "<br>"); // s
+
+      // indexOf('a') : 왼쪽부터 'a' 문자를 검색해서 처음 일치하는 인덱스 번호를 반환
+      document.write(str.indexOf("a") + "<br>"); // 1
+
+      // includes('a') : 'a' 문자가 있으면 true, 없으면 false 반환
+      document.write(str.includes("a") + "<br>"); // true
+
+      // substring(4, 9) : 4번부터 9번 이전까지 문자열 반환
+      // substring(4) : 4번부터 마지막 문자까지 반환
+      document.write(str.substring(4, 9) + "<br>"); // scrip
+      document.write(str.substring(4) + "<br>"); // script
+
+      // substr(4,6) : 4번부터 6개의 문자를 반환
+      document.write(str.substr(4, 6) + "<br>"); // script
+
+      // replace('x', 'y') : 'x'문자를 'y'문자로 변경하기
+      // 기존 스트링 객체는 변경이 안됨
+      document.write(str.replace("s", "S") + "<br>"); // JavaScript
+      document.write(str + "<br>"); // Javascript
+
+      // 문자열1.concat(문자열2) : 문자열1+문자열2 두개가 연결된 새로운 문장
+      document.write(str.concat(" Jaquery") + "<br>"); // Javascript Jquery
+
+      let str2 = "                효진             1    ";
+      // trim() : 문자열의 앞 뒤 공백을 제거함
+      console.log(str2.trim() + "<br>"); // 효진1
+      console.log(str2 + "<br>");
+
+      // toLowerCase() : 소문자로 변경
+      // toUpperCase() : 대문자로 변경
+      // capitalize() : 단어의 첫글자만 대문자로 변경
+      document.write(str.toLowerCase() + "<br>"); // javascript
+      document.write(str.toUpperCase() + "<br>"); // JAVASCRIPT
+
+      // split('구분문자') : 따옴표 안의 구분문자(공백도 포함)를 기준으로 분할해서 배열을 반환
+      let study = "JavaScript JQuery Html Css Java";
+      let arr = study.split(" ");
+      for (let i in arr) {
+        document.write(`arr${[i]} = ` + arr[i] + "<br>");
+      }
+      document.write("arr[3] = " + arr[3] + "<br>");
+      document.write(study.split(" ") + "<br>"); //
+      document.write(study);
+    </script>
+  </body>
+</html>

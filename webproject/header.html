@@ -15,6 +15,7 @@
       <div class="member">
         <a href="login.html">로그인</a>
         <a href="join.html">회원가입</a>
+        <a href="cart.html">장바구니</a>
       </div>
       <nav id="nav">
         <ul class="depth1">
@@ -84,3 +85,69 @@
     </div>
   </div>
 </header>
+
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+  let myid = sessionStorage.getItem("userid");
+  let mypw = sessionStorage.getItem("userpw");
+  let type = sessionStorage.getItem("type");
+  if (myid && mypw) {
+    $(".member a")
+      .eq(0)
+      .attr({
+        href: "javascript:;",
+      })
+      .text("로그아웃");
+    $(".member a")
+      .eq(1)
+      .attr({
+        href: "./modify.html",
+      })
+      .text("정보수정");
+  }
+  $(".member a")
+    .eq(0)
+    .on("click", function () {
+      let text = $(this).text();
+      if (text == "로그아웃") {
+        if (type == "myacc") {
+          sessionStorage.clear();
+          localStorage.clear();
+        } else if (type == "kakao") {
+          sessionStorage.clear();
+          localStorage.clear();
+          kakaoLogout();
+        }
+        $(this)
+          .attr({
+            href: "./login.html",
+          })
+          .text("로그인");
+        $(this)
+          .next()
+          .attr({
+            href: "./join.html",
+          })
+          .text("회원가입");
+        location.href = "./index.html";
+        return false;
+      }
+    });
+
+  function kakakoLogout() {
+    Kakao.init("98bb2e2bd1adba4b911f293825cf0f3b");
+    if (Kakao.Auth.getAccessToken()) {
+      Kakao.API,
+        requset({
+          url: "/v1/user/unlink",
+          success: function (response) {
+            console.log(response);
+          },
+          fail: function (error) {
+            console.log(error);
+          },
+        });
+      Kakao.Auth.setAccessToken(undefined);
+    }
+  }
+</script>

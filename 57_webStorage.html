@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // window의 객체 속성 : localStorage, sessionStorage
+      //  .getItem("키이름") :  저장한 값을 추출함
+      //  JSON.parse("문자열로 저장된 배열이나 객체를 원래 형태로 복원하는 메서드")
+      //  .setItem("키이름", 저장값) : 저장할 값은 문자열로 저장해야 함
+      //  JSON.stringify(배열명, 객체명, 문자가 아닌 값) : 문자열로 변경하는 메서드
+      localStorage.setItem("a", "김효진"); // a에 김효진을 저장하겠다.
+      localStorage.setItem("b", JSON.stringify(["홍", "박", "김"])); // b에 배열을 저장하겠다
+      localStorage.setItem("c", JSON.stringify({ s1: "Java", s2: "Html" }));
+      let aa = localStorage.getItem("a");
+      document.write(aa + "<br>");
+      let bb = JSON.parse(localStorage.getItem("b"));
+      document.write(bb + "<br>");
+      let cc = JSON.parse(localStorage.getItem("c"));
+      document.write(cc + "<br>");
+
+      localStorage.removeItem("a"); // a만 지우고 싶다
+      sessionStorage.removeItem("a");
+      localStorage.clear(); // 모든 키를 다 지우고 싶다
+    </script>
+  </body>
+</html>

@@ -1,11 +1,11 @@
-function usedata(mcate) {
-  let newdata = data.filter((value) => value.mcategory == mcate);
+function usedata(mcate, bcate) {
+  let newdata = data[bcate].filter((value) => value.mcategory == mcate);
   console.log(newdata);
   let ulli = `<ul>`;
   newdata.forEach((value) => {
     ulli += `<li>`;
-    ulli += `<a href="detail.html?${value.name}&${value.price}&${value.image}&${value.detailinfo}&${value.option.size}&${value.option.color}">`;
-    ulli += `<img src="./img/${value.image}" alt="${value.name}" >`;
+    ulli += `<a href="./detail.html?${value.name}&${bcate}">`;
+    ulli += `<img src="./img/${value.image}" alt="${value.name}`;
     ulli += `<div class="info">`;
     ulli += `<p class="name">${value.name}</p>`;
     ulli += `<p class="name">${value.price}</p>`;
@@ -22,3 +22,13 @@ $(".prdBox .list .subcate li").on("click", function () {
   let text = $(this).text();
   usedata(text);
 });
+
+/* let park = {a:"123", b:"456"}
+    객체의 키이름을 직접 붙일때 아래와 같이 표현  
+    park.a   /   park["a"]    == 123
+    park.b   /   park["b"]    == 456
+
+    let bcate = 객체의 키를 저장하는 변수
+    객체에 키 이름을 담은 변수를 붙일때
+    park[bcate]
+*/

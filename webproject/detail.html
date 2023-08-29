@@ -2,19 +2,31 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/rwd.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"
       integrity="sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <link rel="stylesheet" href="./css/index.css" />
-    <title>Detail</title>
   </head>
   <body>
     <div class="header"></div>
+
     <style>
       .detailBox {
         padding: 100px 30px;
@@ -27,52 +39,51 @@
         width: 300px;
         margin-right: 50px;
       }
-      .infobox .prdinfo table {
+      .infobox .prdInfo table {
         width: auto;
       }
-      .infobox .prdinfo table col:nth-child(1) {
+      .infobox .prdInfo table col:nth-child(1) {
         width: 100px;
       }
-      .infobox .prdinfo table col:nth-child(2) {
+      .infobox .prdInfo table col:nth-child(2) {
         width: auto;
       }
-      .infobox .prdinfo table td {
+      .infobox .prdInfo table td {
         padding: 5px 0;
       }
-      .infobox .prdinfo table tr:nth-child(4) input {
+      .infobox .prdInfo table tr:nth-child(4) input {
         display: none;
       }
-      .infobox .prdinfo table tr:nth-child(4) label {
+      .infobox .prdInfo table tr:nth-child(4) label {
         display: inline-block;
         width: 30px;
-        height: 30px;
         text-align: center;
-        line-height: 30px;
         background: #999;
         color: #fff;
+        /* padding:5px 0; */
+        height: 30px;
+        line-height: 30px;
         margin: 0 5px;
       }
-      .infobox .prdinfo table tr:nth-child(4) input:checked + label {
+      .infobox .prdInfo table tr:nth-child(4) input:checked + label {
         background: #000;
       }
-      .infobox .prdinfo table tr:nth-child(5) select {
+      .infobox .prdInfo table tr:nth-child(5) select {
         width: 150px;
         height: 30px;
         border: 1px solid #999;
       }
-      .infobox .prdinfo .btn {
+      .infobox .prdInfo .btn {
         margin-top: 50px;
         text-align: center;
       }
-      .infobox .prdinfo .btn button {
-        display: inline-block;
+      .infobox .prdInfo .btn button {
         width: 100px;
-        line-height: 30px;
+        padding: 5px 0;
         background: blue;
         color: #fff;
-        margin: 0px 10px;
       }
-      .infobox .prdinfo .btn button:nth-child(2) {
+      .infobox .prdInfo .btn button:nth-child(2) {
         background: red;
       }
       .infobox .qty__form button {
@@ -85,169 +96,158 @@
         text-align: center;
       }
     </style>
+
     <section class="detailBox row">
-      <div class="infoBox">
-        <!-- <div class="photo">
-          <img src="./img/4바 타탄 블레이저.jpg" alt="" />
-        </div>
-        <div class="prdinfo">
-          <table>
-            <colgroup>
-              <col />
-              <col />
-            </colgroup>
-            <tbody>
-              <tr>
-                <td>상품명 :</td>
-                <td>여 쟈켓1 판믹스 셀비지 데님 4-바 클래식 스포츠 코트</td>
-              </tr>
-              <tr>
-                <td>가격 :</td>
-                <td>3490000</td>
-              </tr>
-              <tr>
-                <td>상품설명 :</td>
-                <td>판믹스 셀비지 데님 4-바 클래식 스포츠 코트</td>
-              </tr>
-              <tr>
-                <td>사이즈 :</td>
-                <td>
-                  <input type="radio" id="size1" name="size" value="S" /><label
-                    for="size1"
-                    >S</label
-                  >
-                  <input type="radio" id="size2" name="size" value="M" /><label
-                    for="size2"
-                    >M</label
-                  >
-                  <input type="radio" id="size3" name="size" value="L" /><label
-                    for="size3"
-                    >L</label
-                  >
-                </td>
-              </tr>
-              <tr>
-                <td>색상 :</td>
-                <td>
-                  <select name="color" id="color">
-                    <option value="brown">brown</option>
-                    <option value="pink">pink</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>수량</td>
-                <td>
-                  <div class="qty__form">
-                    <button type="button" class="qty__minus">-</button>
-                    <input
-                      type="text"
-                      value="1"
-                      autocomplete="off"
-                      class="qty__input"
-                    />
-                    <button type="button" class="qty__plus">+</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="btn">
-            <a href="./cart.html">장바구니</a>
-            <a href="./buy.html">구매하기</a>
-          </div>
+      <!-- <div class="infobox">
+            <div class="photo">
+                <img src="./images/4바 타탄 블레이저.jpg" alt="">
+            </div>
+            <div class="prdInfo">
+                <table>
+                    <colgroup>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td>상품명 : </td>
+                            <td>상품이름</td>
+                        </tr>
+                        <tr>
+                            <td>가격 : </td>
+                            <td>10000</td>
+                        </tr>
+                        <tr>
+                            <td>상품설명 : </td>
+                            <td>아라아라아라라라</td>
+                        </tr>
+                        <tr>
+                            <td>사이즈 : </td>
+                            <td>
+                                <input type="radio" id="size1" name="size" value="S"><label for="size1">S</label>
+                                <input type="radio" id="size2" name="size" value="M"><label for="size2">M</label>
+                                <input type="radio" id="size3" name="size" value="L"><label for="size3">L</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>색상 : </td>
+                            <td>
+                                <select name="color" id="color">
+                                    <option value="brown">brown</option>
+                                    <option value="pink">pink</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btn">
+                    <a href="./cart.html">장바구니</a>
+                    <a href="./buy.html">구매하기</a>
+                </div>
+            </div>
         </div> -->
-      </div>
     </section>
+
     <div class="footer"></div>
+
     <script src="./js/common.js"></script>
     <script>
       let temp = location.href.split("?");
-      // console.log(temp);
-      let detail = decodeURI(temp[1]).split("&");
-      let option1 = detail[4].toUpperCase().split(",");
-      let option2 = detail[5].split(",");
+      let detail = decodeURI(temp[1]).split("&"); // 상품이름, 성별만 추출
       // console.log(detail);
-      // console.log(option1);
+      let product = [];
+      $.ajax({
+        type: "GET",
+        url: "./js/data.json",
+        dataType: "json",
+        success: function (rdata) {
+          product = rdata[detail[1]].filter((value, index) => {
+            // filter메소드의 결과물은 배열로
+            return value.name == detail[0];
+          });
+        },
+        error: function (xhr) {
+          alert(xhr.status + "/" + xhr.errorText);
+        },
+      });
 
-      // size배열 분리
+      //    <input type="radio" id="size1" name="size" value="S"><label for="size1">S</label>
+      let option1 = product[0].option.size;
       let size = "";
       option1.forEach((value, index) => {
-        size += `<input type="radio" id="size${index}" name="size" value="${value}" />`;
+        size += `<input type="radio" id="size${index}" name="size" value="${value}">`;
         size += `<label for="size${index}">${value}</label>`;
       });
-      // color 배열 분리
-      let color = "";
-      color += `<select name="color" id="color">`;
+      let option2 = product.option.color;
+      let color = `<select name="color" id="color">`;
       color += `<option value="">색상선택</option>`;
-      option2.forEach((value) => {
-        color += `<option value="${value}">${value}</option>`;
-      });
+      option2.forEach(
+        (value) => (color += `<option value="${value}">${value}</option>`)
+      );
       color += `</select>`;
-      let price = detail[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      let price = product.price
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       let infobox = `<div class="infobox">`;
-      infobox += `<div class="photo">`;
-      infobox += `<img src="img/${detail[2]}" alt="${detail[0]}" />`;
-      infobox += `</div>`;
-      infobox += `<form action="#" method="post" class="prdinfo"><table>`;
-      infobox += `<colgroup><col /><col /></colgroup>`;
+      infobox += `<div class="photo"><img src="./img/${product.image}" alt="${product.name}"></div>`;
+      infobox += `<form action="#" method="post" class="prdInfo">`;
+      infobox += `<table>`;
+      infobox += `<colgroup>`;
+      infobox += `<col><col>`;
+      infobox += `</colgroup>`;
       infobox += `<tbody>`;
       infobox += `<tr>`;
-      infobox += `<td>상품명 :</td>`;
-      infobox += `<td>${detail[0]}</td>`;
+      infobox += `<td>상품명 : </td>`;
+      infobox += `<td>${product.name}</td>`;
       infobox += `</tr>`;
       infobox += `<tr>`;
-      infobox += `<td>가격 :</td>`;
+      infobox += `<td>가격 : </td>`;
       infobox += `<td>${price}</td>`;
       infobox += `</tr>`;
       infobox += `<tr>`;
-      infobox += `<td>상품설명 :</td>`;
-      infobox += `<td>${detail[3]}</td>`;
+      infobox += `<td>요약설명 : </td>`;
+      infobox += `<td>${product.detaliinfo}</td>`;
       infobox += `</tr>`;
       infobox += `<tr>`;
-      infobox += `<td>사이즈 :</td>`;
+      infobox += `<td>사이즈 : </td>`;
       infobox += `<td>${size}</td>`;
       infobox += `</tr>`;
       infobox += `<tr>`;
-      infobox += `<td>색상 :</td>`;
+      infobox += `<td>색상 : </td>`;
       infobox += `<td>${color}</td>`;
       infobox += `</tr>`;
-      infobox += `<tr><td>수량 : </td>`;
-      infobox += `<td>
-                    <div class="qty__form">
-                      <button type="button" class="qty__minus">-</button>
-                      <input type="text" value="1" autocomplete="off" class="qty__input">
-                      <button type="button" class="qty__plus">+</button>
-                    </div>
-                  </td>`;
-      infobox += `</tr>`;
-
       infobox += `<tr>`;
-      infobox += `<td>금액 :</td>`;
+      infobox += `<td>수량 : </td>`;
+      infobox += `<td>
+                        <div class="qty__form">
+                            <button type="button" class="qty__minus">-</button>
+                            <input type="text" value="1" autocomplete="off" class="qty__input">
+                            <button type="button" class="qty__plus">+</button>
+                        </div>
+                   </td>`;
+      infobox += `</tr>`;
+      infobox += `<tr>`;
+      infobox += `<td>금액 : </td>`;
       infobox += `<td class="total">${price}</td>`;
       infobox += `</tr>`;
-      infobox += `</tbody></table>`;
+      infobox += `</tbody>`;
+      infobox += `</table>`;
       infobox += `<div class="btn">`;
       infobox += `<button type="submit" class="cart">장바구니</button>`;
       infobox += `<button type="submit" class="buy">구매하기</button>`;
-      infobox += `</div></form></div>`;
-
+      infobox += `</div>`;
+      infobox += `</form>`;
+      infobox += `</div>`;
       $(".detailBox .infobox").remove();
       $(".detailBox").append(infobox);
 
       let quantity = 1;
       let total = 0;
-      function getTotal() {
-        total = quantity * detail[1];
-        $(".total").text(
-          total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        );
-      }
       // + 누르면
-      $(".qty__plus").on("click", function () {
-        quantity = parseInt($(".qty__input").val());
+      $("body").on("click", ".qty__plus", function () {
         // $(".qty__input").val() = input 상자에 입력된 값 문자로 추출(parseInt로 묶으면 문자는 무시하고 숫자로 변환해줌)
-        if (quantity > 0) {
+        quantity = $(".qty__input").val();
+        if (quantity) {
           quantity = parseInt(quantity);
           $(".qty__input").val(++quantity); // select, input에 값을 넣어줄때 val(값)(val()에 값이 없을때는 값을 추출해줌)
           getTotal();
@@ -257,13 +257,11 @@
           getTotal();
         }
       });
-
       // - 누르면
       $("body").on("click", ".qty__minus", function () {
         quantity = parseInt($(".qty__input").val());
         if (quantity > 1) {
-          quantity = parseInt(quantity);
-          $(".qty__input").val(--quantity); // select, input에 값을 넣어줄때 val(값)(val()에 값이 없을때는 값을 추출해줌)
+          $(".qty__input").val(--quantity);
           getTotal();
         } else {
           quantity = 1;
@@ -272,59 +270,74 @@
         }
       });
 
-      // input에 숫자 직접입력하면 총합계 바뀜
       $("body").on("keyup", ".qty__input", function () {
-        quantity = parseInt($(this).val());
-        if (quantity > 1) {
+        quantity = $(this).val();
+        if (quantity) {
           $(this).val(quantity);
           getTotal();
         }
       });
+      function getTotal() {
+        total = quantity * product.price;
+        $(".total").text(
+          total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        );
+      }
 
-      //
-      $("body").on("submit", ".prdinfo", function (e) {
-        e.preventDefault;
-        let btn_class = $document.activeElement.attr("class");
-        console.log(btn_class);
-        let sizeValue = "";
-        $('input[name="size"]').each(function () {
-          if ($(this).prop("checked")) {
-            // 현재 접근하고 있는 라디오버튼에 체크가 되어있나? 하나라도 되어있다면 flag를 true로!
-            sizeValue = $(this).val();
+      // input에 숫자 직접입력하면 총합계 바뀜
+      $("body").on("submit", ".prdInfo", function (e) {
+        e.preventDefault();
+        let answer = confirm("정말로 장바구니에 담겠습니까?");
+        if (answer) {
+          let btn_class = $(document.activeElement).attr("class");
+          console.log(btn_class);
+
+          // 사이즈 선택 값 출력
+          let sizeValue = "";
+          $('input[name="size"]').each(function () {
+            if ($(this).prop("checked")) {
+              // 현재 접근하고 있는 라디오버튼에 체크가 되어있나? 하나라도 되어있다면 flag를 true로!
+
+              sizeValue = $(this).val();
+            }
+          });
+          if (!sizeValue) {
+            alert("사이즈를 선택해 주세요.");
+            return false;
           }
-        });
-        if (!sizeValue) {
-          alert("사이즈를 선택해 주세요.");
-          return false;
-        }
 
-        let colorValue = $('select[name="color"]').val();
-        if (!colorValue) {
-          alert("색상을 선택하세요.");
-          return false;
+          let colorValue = $('select[name="color"]').val();
+          if (!colorValue) {
+            alert("색상을 선택하세요.");
+            return false;
+          }
+
+          let newItem = {
+            name: product.name,
+            price: product.price,
+            photo: product.image,
+            size: sizeValue,
+            color: colorValue,
+            quantity: quantity,
+          };
+
+          console.log(newItem);
+          // localStorage.setItem("item", JSON.stringify(newItem)); //localStorage에는 문자만 저장할 수 있음
+          //JSON.stringify(newItem) ------> newItem 배열을 문자로 추출
+          let itemList = JSON.parse(localStorage.getItem("allItem"));
+          // allItem이라는게 없으니 null값으로 출력
+          if (itemList == null) {
+            itemList = [];
+          }
+          itemList.push(newItem);
+          localStorage.setItem("allItem", JSON.stringify(itemList));
+
+          if (btn_class == "cart") {
+            location.href = "./cart.html";
+          } else {
+            location.href = "./buy.html";
+          }
         }
-        let newItem = {
-          name: detail[0],
-          price: detail[1],
-          size: sizeValue,
-          color: colorValue,
-          quantity: quantity,
-        };
-        // console.log(newItem);
-        localStorage.setItem("item", JSON.stringify(newItem)); //localStorage에는 문자만 저장할 수 있음
-        //JSON.stringify(newItem) ------> newItem 배열을 문자로 추출
-        let itemList = JSON.parse(localStorage.getItem("allItem")); // allItem이라는게 없으니 null값으로 출력
-        if (itemList == null) {
-          itemList = [];
-        }
-        itemList.push(newItem);
-        localStorage.setItem("allItem", JSON.stringify(itemList));
-        if (btn_class == "cart") {
-          location.href = "http://localhost:5502/cart.html";
-        } else {
-          location.href = "http://localhost:5502/buy.html";
-        }
-        return false;
       });
     </script>
   </body>

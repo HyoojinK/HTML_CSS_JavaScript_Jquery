@@ -64,8 +64,8 @@
         dataType: "json",
         success: function (rdata) {
           // console.log(rdata.woman);
-          data = rdata.woman;
-          usedata("쟈켓");
+          data = rdata;
+          usedata("쟈켓", "woman");
         },
         error: function (xhr) {
           alert(xhr.status + "/" + xhr.errorText);
